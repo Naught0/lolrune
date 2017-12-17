@@ -4,24 +4,23 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def load_rune_file(session: requests.Session, headers: dict = None) -> dict:
-    """ Loads and returns the rune_file or fetches it using requests if it's not found """
-    path = 'data/rune_links.json'
+def load_rune_file(html: str) -> dict:
+    """ Loads and returns the rune_file or fetches it using requests 
+    if it's not found """
     try:
         with open(path) as f:
             links = json.load(f)
 
     except (FileNotFoundError, json.JSONDecodeError):
-        links = get_champ_json(session, headers=headers)
-        with open(path, 'w') as f:
-            json.dump(links, f, sort_keys=True, indent=2)
+        return None
 
     return links
 
 
-def get_champ_json(session: requests.Session, headers: dict = None) -> dict:
-    """ Function which returns a dict of champs & their corresponding runeforge links """
-    soup = BeautifulSoup(session.get('http://runeforge.gg/', headers=headers).text, 'lxml')
+def get_rune_links(html: str) -> dict:
+    """ Function which writes the rune_links.json data and returns the 
+    data in dict form """
+    soup = BeautifulSoup(html, 'lxml')
 
     # Champs with only a single runepage
     single_champs_raw = soup.find_all('li', class_='champion')
@@ -33,21 +32,34 @@ def get_champ_json(session: requests.Session, headers: dict = None) -> dict:
     double_champs_decode = [json.loads(x['data-loadouts']) for x in double_champs_raw]
     double_champs = {x[0]['champion'].lower(): [x[0]['link'], x[1]['link']] for x in double_champs_decode}
 
+    # Combine the two dicts
     champs_combined = {**single_champs, **double_champs}
+
+    # Write to data file
+    with open('data/rune_links.json', 'w') as f:
+        json.dumps(champs_combined, f, indent=2, sort_keys=True)
 
     return champs_combined
 
 
 def parse_rune_html(html: str) -> dict:
-    """ A function which returns a dict representation of the Runeforge.gg web page """
+    """ A function which returns a dict representation of the 
+    Runeforge.gg page for a specific champion """
     soup = BeautifulSoup(html, 'lxml')
+
+    # The soup stuff
     champ = soup.find('h1', class_='champion-header--title').text
     title = soup.find('h2', class_='loadout-title').text
     description = soup.find('p').text
+    # Names of the Rune trees
     p_tree, s_tree = [x.text for x in soup.find_all('h2', class_='rune-path--name')]
+    # List of all the runes together
     all_runes = soup.find_all('a', class_='rune-name')
+    # The keystone (duh)
     keystone = all_runes[0].text
+    # Rest of the runes in the primary tree, sans keystone
     p_rest = [x.text for x in all_runes[1:4]]
+    # The runes in the secondary tree
     s_rest = [x.text for x in all_runes[4:7]]
 
     return {'name': champ, 'title': title, 'description': description,
