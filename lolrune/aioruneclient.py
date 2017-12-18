@@ -1,6 +1,7 @@
-import aiohttp
 import asyncio
 from typing import Generator
+
+import aiohttp
 
 import lolrune.utils as utils
 from .errors import *
@@ -18,9 +19,9 @@ class AioRuneClient:
         self.rune_links = utils.load_rune_file()
         if self.rune_links is None:
             self.rune_links = utils.parse_rune_links(
-                self.loop.run_until_complete(self.__get(self.URL)))
+                self.loop.run_until_complete(self._get(self.URL)))
 
-    async def __get(self, url: str) -> str:
+    async def _get(self, url: str) -> str:
         """ A small helper method for a quick GET request """
         async with self.session.get(url, headers=self.HEADERS) as r:
             return await r.text()
@@ -28,7 +29,7 @@ class AioRuneClient:
     async def update_champs(self):
         """ Update the rune_links.json file
         (as the website is being updated relatively frequently) """
-        html = await self.__get(self.URL)
+        html = await self._get(self.URL)
         utils.parse_rune_links(html)
 
     async def get_runes(self, champion_name: str) -> Generator:
@@ -38,8 +39,10 @@ class AioRuneClient:
         champion_lower = champion_name.lower()
         if champion_lower not in self.rune_links:
             raise ChampNotFoundError(champion_name)
-            return
 
+        rune_list = []
         for x in self.rune_links[champion_lower]:
-            html = await self.__get(x)
-            yield utils.parse_rune_html(html)
+            html = await self._get(x)
+            rune_list.append(utils.parse_rune_html(html))
+
+        return tuple(rune_list)

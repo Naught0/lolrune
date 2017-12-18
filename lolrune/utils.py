@@ -1,10 +1,10 @@
 import json
+from typing import Union
 
-import requests
 from bs4 import BeautifulSoup
 
 
-def load_rune_file() -> dict:
+def load_rune_file() -> Union[dict, None]:
     """ Loads and returns the rune_file or fetches it using requests 
     if it's not found """
     try:
@@ -24,8 +24,7 @@ def parse_rune_links(html: str) -> dict:
 
     # Champs with only a single runepage
     single_champs_raw = soup.find_all('li', class_='champion')
-    single_champs = {x.a.div.div['style'][77:-6].lower(): [x.a['href']] for x in single_champs_raw if
-                     x.a is not None}
+    single_champs = {x.a.div.div['style'][77:-6].lower(): [x.a['href']] for x in single_champs_raw if x.a is not None}
 
     # Champs with two (or more) runepages
     double_champs_raw = soup.find_all('div', class_='champion-modal-open')
