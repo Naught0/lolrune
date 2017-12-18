@@ -4,11 +4,11 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def load_rune_file(html: str) -> dict:
+def load_rune_file() -> dict:
     """ Loads and returns the rune_file or fetches it using requests 
     if it's not found """
     try:
-        with open(path) as f:
+        with open('lolrune/data/rune_links.json') as f:
             links = json.load(f)
 
     except (FileNotFoundError, json.JSONDecodeError):
@@ -17,7 +17,7 @@ def load_rune_file(html: str) -> dict:
     return links
 
 
-def get_rune_links(html: str) -> dict:
+def parse_rune_links(html: str) -> dict:
     """ Function which writes the rune_links.json data and returns the 
     data in dict form """
     soup = BeautifulSoup(html, 'lxml')
@@ -36,8 +36,8 @@ def get_rune_links(html: str) -> dict:
     champs_combined = {**single_champs, **double_champs}
 
     # Write to data file
-    with open('data/rune_links.json', 'w') as f:
-        json.dumps(champs_combined, f, indent=2, sort_keys=True)
+    with open('lolrune/data/rune_links.json', 'w') as f:
+        json.dump(champs_combined, f, indent=2, sort_keys=True)
 
     return champs_combined
 
