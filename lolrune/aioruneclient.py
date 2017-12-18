@@ -12,7 +12,7 @@ class AioRuneClient:
     HEADERS = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0'}
     URL = 'http://runeforge.gg'
 
-    def __init__(self, session: aiohttp.ClientSession = None, loop: asyncio.AbstractEventLoop = none):
+    def __init__(self, session: aiohttp.ClientSession = None, loop: asyncio.AbstractEventLoop = None):
         self.loop = asyncio.get_event_loop() if loop is None else loop
         self.session = aiohttp.ClientSession(loop=self.loop) if session is None else session
         self.rune_links = utils.load_rune_file()
