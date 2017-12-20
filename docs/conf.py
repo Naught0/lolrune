@@ -17,10 +17,19 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
-# import sys
+# import os
+import sys
+from unittest.mock import MagickMock
 # sys.path.insert(0, os.path.abspath('.'))
 
+# Attempt to fix aiohttp business
+class Mock(MagickMock):
+    @classmethod
+    def __getattr__(cls, name):
+        return MagickMock
+
+MOCK_MODULES = ['aiohttp']
+sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 
 # -- General configuration ------------------------------------------------
 
