@@ -9,7 +9,7 @@ class RuneConnectionError(LoLRuneException):
 
     Parameters
     ----------
-    status : str
+    status : int
         The status of the request which failed.
     """
 
