@@ -20,7 +20,6 @@ setup(
         'local_scheme': 'dirty-tag'
     },
     setup_requires=['setuptools_scm', 'aiohttp', 'requests', 'bs4', 'lxml'],
-    include_package_data=True,
     description='A set of clients which allows you to gather optimal runes for a given League of Legends champion.',
     long_description=long_description,
     author='James E',
