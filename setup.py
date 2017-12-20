@@ -2,7 +2,7 @@ from pkg_resources import get_distribution, DistributionNotFound
 from setuptools import setup
 
 try:
-    __version__ = get_distribution(__name__).version
+    __version__ = get_distribution('lolrune').version
 except DistributionNotFound:
     pass
 

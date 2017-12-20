@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 .gitattributes
 \.idea/
+lolrune.egg-info/
+dist/
