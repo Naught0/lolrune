@@ -20,8 +20,8 @@ class RuneClient:
     rune_links : dict
         This is the data contained in the rune_links.json file.
 
-    Note
-    ----
+    Notes
+    -----
     The structure for this file, if it's ever relevant is .. code-block:: python3
     
             {
