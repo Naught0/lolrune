@@ -18,9 +18,12 @@ class RuneClient:
     Attributes
     ----------
     rune_links : dict
-        This is the data contained the .data/rune_links.json file.
-        The structure is as follows::
+        This is the data contained in the rune_links.json file.
 
+    Note
+    ----
+    The structure for this file, if it's ever relevant is .. code-block:: python3
+    
             {
                 "champion_name": [
                     "http://link_to_the_rune.page/",
