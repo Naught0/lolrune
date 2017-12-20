@@ -14,6 +14,7 @@ except (FileNotFoundError, IOError):
 
 setup(
     name='lolrune',
+    packages=['lolrune'],
     use_scm_version=True,
     setup_requires=['setuptools_scm', 'aiohttp'],
     description='A set of clients which allows you to gather optimal runes for a given League of Legends champion.',
@@ -21,5 +22,6 @@ setup(
     author='James E',
     author_email='naught0@github.com',
     url='https://github.com/naught0/lolrune',
-    license='MIT'
+    license='MIT',
+    python_requires='>=3.5.2'
 )
