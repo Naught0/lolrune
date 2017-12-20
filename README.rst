@@ -13,7 +13,7 @@ regularly as this is being actively developed.
 Documentation
 ~~~~~~~~~~~~~
 
-You can find the docs (if they ever build) at http://lolrune.readthedocs.io/ 
+You can find the docs (if they ever build) at http://lolrune.readthedocs.io/
 
 Examples
 ~~~~~~~~
