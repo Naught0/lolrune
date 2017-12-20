@@ -51,7 +51,7 @@ def parse_rune_links(html: str) -> dict:
     champs_combined = {**single_champs, **double_champs}
 
     # Write to data file
-    with open('lolrune/data/rune_links.json', 'w') as f:
+    with open('data/rune_links.json', 'w') as f:
         json.dump(champs_combined, f, indent=2, sort_keys=True)
 
     return champs_combined
