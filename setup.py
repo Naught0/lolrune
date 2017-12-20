@@ -21,5 +21,5 @@ setup(
     author='James E',
     author_email='naught0@github.com',
     url='https://github.com/naught0/lolrune',
-    license='MIT',
+    license='MIT'
 )
