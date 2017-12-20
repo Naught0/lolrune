@@ -18,18 +18,8 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 # import os
-import sys
-from unittest.mock import MagicMock
+# import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
-# Attempt to fix aiohttp business
-class Mock(MagicMock):
-    @classmethod
-    def __getattr__(cls, name):
-        return MagicMock
-
-MOCK_MODULES = ['aiohttp']
-sys.modules.update(MOCK_MODULES[0], Mock())
 
 # -- General configuration ------------------------------------------------
 
