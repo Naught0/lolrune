@@ -23,7 +23,9 @@ class AioRuneClient:
 
     rune_links : dict
         This is the data contained the .data/rune_links.json file.
-        The structure is as follows::
+        The structure is as follows
+        
+        .. code-block:: python3
 
             {
                 "champion_name": [

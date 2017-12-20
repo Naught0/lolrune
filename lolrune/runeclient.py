@@ -81,7 +81,9 @@ class RuneClient:
         -------
         Tuple[dict]
             A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
-            contained in the dict::
+            contained in the dict
+            
+            .. code-block:: python3
 
                 {
                     "name": "Varus",
