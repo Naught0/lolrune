@@ -10,6 +10,11 @@ Installation
 Simply run ``python3 -m pip install lolrune -U``. Be sure to update
 regularly as this is being actively developed.
 
+Documentation
+~~~~~~~~~~~~~
+
+You can find the docs (if they ever build) at http://lolrune.readthedocs.io/ 
+
 Examples
 ~~~~~~~~
 
