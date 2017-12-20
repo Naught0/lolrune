@@ -1,2 +1,6 @@
 lolrune
 pillow
+aiohttp
+bs4
+lxml
+requests
