@@ -1,2 +1,2 @@
-include data/
+include data/rune_links.json
 include LICENSE
