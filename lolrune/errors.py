@@ -1,17 +1,30 @@
 class LoLRuneException(Exception):
-    """ Base exception for library exceptions """
+    """Base exception for library exceptions.
+    """
     pass
 
 
 class RuneConnectionError(LoLRuneException):
-    """ Raised when the requests status indicates a problem """
+    """Raised when a request does not have a status of 200.
+
+    Parameters
+    ----------
+    status : str
+        The status of the request which failed.
+    """
 
     def __init__(self, status):
         self.message = f'Runeforge.gg failed to respond with status {status}.'
 
 
 class ChampNotFoundError(LoLRuneException):
-    """ Raised when champion input is invalid """
+    """Raised when a champion is not found in the .data/rune_links.json file.
+
+    Parameters
+    ----------
+    champ : str
+        The champion which was not found.
+    """
 
     def __init__(self, champ):
         self.message = f'No champs matching {champ}.'

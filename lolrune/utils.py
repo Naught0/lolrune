@@ -5,8 +5,14 @@ from bs4 import BeautifulSoup
 
 
 def load_rune_file() -> Union[dict, None]:
-    """ Loads and returns the rune_file or fetches it using requests 
-    if it's not found """
+    """A function which loads the .data/rune_links.json file.
+
+    Returns
+    -------
+    Union[dict, None]
+        - ``dict`` if there are no errors in opening the file.
+        - ``None`` otherwise.
+    """
     try:
         with open('lolrune/data/rune_links.json') as f:
             links = json.load(f)
@@ -18,8 +24,18 @@ def load_rune_file() -> Union[dict, None]:
 
 
 def parse_rune_links(html: str) -> dict:
-    """ Function which writes the rune_links.json data and returns the 
-    data in dict form """
+    """A function which parses the main Runeforge website into the .data/rune_links.json format.
+
+    Parameters
+    ----------
+    html : str
+        The string representation of the html obtained via a GET request
+
+    Returns
+    -------
+    dict
+        The rune_links.json file
+    """
     soup = BeautifulSoup(html, 'lxml')
 
     # Champs with only a single runepage
@@ -42,8 +58,18 @@ def parse_rune_links(html: str) -> dict:
 
 
 def parse_rune_html(html: str) -> dict:
-    """ A function which returns a dict representation of the 
-    Runeforge.gg page for a specific champion """
+    """A function that returns a dict representation of the Runeforge.gg page for a specific champ
+
+    Parameters
+    ----------
+    html : str
+        The string representation of the html obtained via a GET request
+
+    Returns
+    -------
+    dict
+        Contains champ rune info described in ``RuneClient`` and ``AioRuneClient``.
+    """
     soup = BeautifulSoup(html, 'lxml')
 
     # The soup stuff

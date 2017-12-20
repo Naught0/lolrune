@@ -1,4 +1,4 @@
-from typing import Generator
+from typing import Tuple
 
 import requests
 
@@ -7,29 +7,106 @@ from .errors import *
 
 
 class RuneClient:
-    """ A client which can fetch information regarding a champion's optimal runes """
+    """A client which allows you get a champion's optimal runes.
+
+    Parameters
+    ----------
+    session : requests.Session, optional
+        The main session which is used to make all requests.
+        If one is not passed, one will be created.
+
+    Attributes
+    ----------
+    rune_links : dict
+        This is the data contained the .data/rune_links.json file.
+        The structure is as follows::
+
+            {
+                "champion_name": [
+                    "http://link_to_the_rune.page/",
+                    "http://a_second_link_if.exists/"
+                ]
+            }
+    """
     HEADERS = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0'}
+    URL = 'http://runeforge.gg/'
 
     def __init__(self, session: requests.Session = None):
-        self.session = requests.Session() if session is None else session
+        self.session = requests.Session() or session
         self.rune_links = utils.load_rune_file()
         # Create a proper rune_links.json if it's broken for some reason
         if self.rune_links is None:
-            self.rune_links = utils.parse_rune_links(self._get('http://runeforge.gg'))
+            self.rune_links = utils.parse_rune_links(self._get(self.URL))
 
     def _get(self, url: str) -> str:
-        """ Small helper method for a quick GET request """
-        return self.session.get(url, headers=self.HEADERS).text
+        """A small wrapper method which makes a quick GET request.
+
+        Parameters
+        ----------
+        url : str
+            The URL to get.
+
+        Returns
+        -------
+        str
+            The raw html of the requested page.
+
+        Raises
+        ------
+        RuneConnectionError
+            If the GET response status is not 200.
+        """
+        resp = self.session.get(url, headers=self.HEADERS)
+        if resp.status is 200:
+            return resp.text
+        else:
+            raise RuneConnectionError(resp.status)
 
     def update_champs(self) -> None:
-        """ Update the rune_links.json file 
-        (as the website is being updated relatively frequently) """
-        utils.parse_rune_links(self._get('http://runeforge.gg'))
+        """A method which updates the .data/rune_links.json file and ``self.rune_links``.
 
-    def get_runes(self, champion_name: str) -> tuple:
-        """ Returns generator which yields runepages in dict form for a given champion 
+        The Runeforge.gg site is frequently updating
+        """
+        self.rune_links = utils.parse_rune_links(self._get(self.URL))
 
-        Data retrieved from Runeforge.gg """
+    def get_runes(self, champion_name: str) -> Tuple[dict]:
+        """The main method to retrieve optimal runes for a given champion.
+
+        Parameters
+        ----------
+        champion_name : str
+            Case insensitive name of the champion to get runes for.
+
+        Returns
+        -------
+        Tuple[dict]
+            A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
+            contained in the dict::
+
+                {
+                    "name": "Varus",
+                    "title": "Bloodshed Carries a Price",
+                    "description": "Lethality focused long range poke with [Q].",
+                    "runes": {
+                        "primary": {
+                            "name": "Sorcery",
+                            "keystone": "Arcane Comet",
+                            "rest": [
+                                "Manaflow Band",
+                                "Celerity",
+                                "Scorch"
+                            ]
+                        },
+                        "secondary": {
+                            "name": "Precision",
+                            "rest": [
+                                "Triumph",
+                                "Coup De Grace"
+                            ]
+                        }
+                    }
+                }
+        """
         # Check whether input is valid
         champion_lower = champion_name.lower()
         if champion_lower not in self.rune_links:

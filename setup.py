@@ -1,0 +1,25 @@
+from pkg_resources import get_distribution, DistributionNotFound
+from setuptools import setup
+
+try:
+    __version__ = get_distribution(__name__).version
+except DistributionNotFound:
+    pass
+
+try:
+    with open('README.rst') as f:
+        long_description = f.read()
+except (FileNotFoundError, IOError):
+    long_description = ''
+
+setup(
+    name='lolrune',
+    use_scm_version=True,
+    setup_requires=['setuptools_scm', 'aiohttp'],
+    description='A set of clients which allows you to gather optimal runes for a given League of Legends champion.',
+    long_description=long_description,
+    author='James E',
+    author_email='naught0@github.com',
+    url='https://github.com/naught0/lolrune',
+    license='MIT',
+)
