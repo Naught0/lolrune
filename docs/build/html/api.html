@@ -67,6 +67,13 @@ The structure is as follows:</p>
 </dd>
 </dl>
 <dl class="method">
+<dt id="lolrune.RuneClient.update_champs">
+<code class="descname">update_champs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.RuneClient.update_champs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A method which updates the .data/rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</p>
+<p>The Runeforge.gg site is frequently updating</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="lolrune.RuneClient.get_runes">
 <code class="descname">get_runes</code><span class="sig-paren">(</span><em>champion_name: str</em><span class="sig-paren">)</span> &#x2192; typing.Tuple[dict]<a class="headerlink" href="#lolrune.RuneClient.get_runes" title="Permalink to this definition">¶</a></dt>
 <dd><p>The main method to retrieve optimal runes for a given champion.</p>
@@ -107,13 +114,6 @@ contained in the dict:</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="lolrune.RuneClient.update_champs">
-<code class="descname">update_champs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.RuneClient.update_champs" title="Permalink to this definition">¶</a></dt>
-<dd><p>A method which updates the .data/rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</p>
-<p>The Runeforge.gg site is frequently updating</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
@@ -140,6 +140,13 @@ The structure is as follows:</p>
 </div>
 </dd>
 </dl>
+<dl class="method">
+<dt id="lolrune.AioRuneClient.update_champs">
+<code class="descname">update_champs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.AioRuneClient.update_champs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A method which updates the .data/rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</p>
+<p>The Runeforge.gg site is frequently updating</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="lolrune.AioRuneClient.get_runes">
 <code class="descname">get_runes</code><span class="sig-paren">(</span><em>champion_name: str</em><span class="sig-paren">)</span> &#x2192; typing.Tuple[dict]<a class="headerlink" href="#lolrune.AioRuneClient.get_runes" title="Permalink to this definition">¶</a></dt>
@@ -183,13 +190,6 @@ contained in the dict:</p>
 <dt>ChampNotFoundError</dt>
 <dd>If the champion is not found in <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</dd>
 </dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="lolrune.AioRuneClient.update_champs">
-<code class="descname">update_champs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.AioRuneClient.update_champs" title="Permalink to this definition">¶</a></dt>
-<dd><p>A method which updates the .data/rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</p>
-<p>The Runeforge.gg site is frequently updating</p>
 </dd></dl>
 
 </dd></dl>
