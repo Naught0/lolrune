@@ -71,7 +71,8 @@ Examples
     >>> loop = asyncio.get_event_loop()
     >>> run = loop.run_until_complete
     >>> aioclient = AioRuneClient(loop=loop)
-    >>> run(aioclient.get_runes('zoe'))
+    >>> zoe = run(aioclient.get_runes('zoe'))
+    >>> print(json.dumps(zoe, indent=2))
     [
       {
         "name": "Zoe",
