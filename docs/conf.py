@@ -33,8 +33,7 @@ import os
 # ones.
 extensions = [
     'sphinx.ext.autodoc', 
-    'sphinx.ext.githubpages',
-    'sphinxcontrib.asyncio'
+    'sphinx.ext.githubpages'
 ]
 
 if os.getenv('READTHEDOCS') == 'True':
