@@ -36,11 +36,6 @@ extensions = [
     'sphinx.ext.githubpages'
 ]
 
-if os.getenv('READTHEDOCS') == 'True':
-    extensions.append('sphinxcontrib.napoleon')
-else:
-    extensions.append('sphinx.ext.napoleon')
-
 autodoc_member_order = 'bysource'
 
 # Add any paths that contain templates here, relative to this directory.
