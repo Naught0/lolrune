@@ -62,7 +62,7 @@ class RuneClient:
         else:
             raise RuneConnectionError(resp.status_code)
 
-    def update_champs(self) -> None:
+    def update_champs(self):
         """A method which updates the .data/rune_links.json file and ``self.rune_links``.
 
         The Runeforge.gg site is frequently updating

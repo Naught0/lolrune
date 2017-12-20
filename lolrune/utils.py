@@ -14,7 +14,7 @@ def load_rune_file() -> Union[dict, None]:
         - ``None`` otherwise.
     """
     try:
-        with open('lolrune/data/rune_links.json') as f:
+        with open('data/rune_links.json') as f:
             links = json.load(f)
 
     except (FileNotFoundError, json.JSONDecodeError):

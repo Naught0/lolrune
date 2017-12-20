@@ -17,6 +17,7 @@ setup(
     packages=['lolrune'],
     use_scm_version=True,
     setup_requires=['setuptools_scm', 'aiohttp'],
+    include_package_data=True,
     description='A set of clients which allows you to gather optimal runes for a given League of Legends champion.',
     long_description=long_description,
     author='James E',
