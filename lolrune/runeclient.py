@@ -22,9 +22,23 @@ class RuneClient:
 
     URL : str
         The runeforge.gg url used in requests.
-        
+
     rune_links : dict
         This is the data contained in the rune_links.json file.
+    
+    Note
+    ----
+    The rune_links data is structured like so::
+
+        {
+          "aatrox": [
+            "http://runeforge.gg/loadouts/die-and-be-forgotten/"
+          ],
+          "ahri": [
+            "http://runeforge.gg/loadouts/the-poking-fox/",
+            "http://runeforge.gg/loadouts/burst-snowball-carry/"
+          ], ...
+        }
     """
     HEADERS = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0'}
     URL = 'http://runeforge.gg/'

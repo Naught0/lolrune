@@ -4,5 +4,5 @@ aiohttp
 bs4
 lxml
 requests
-sphinxcontrib-asyncio
-numpydoc
+sphinx_autodoc_typehints
+sphinx_py3doc_enhanced_theme

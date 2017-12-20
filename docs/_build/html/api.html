@@ -1,12 +1,10 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>API Reference &#8212; lolrune 0.0.1a documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -21,17 +19,26 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/sidebar.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Quick Start" href="index.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="shortcut icon" type="image/png" href="_static/favicon.png" />
+    <meta name="viewport" content="width=device-width,initial-scale=0.8">
+    
+    
 
   </head>
   <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="responsive-menu"><a href="#sidebar-anchor" title="Navigation">&#9776;</a></li>
+        <li><a href="index.html">lolrune 0.0.1a documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    
   
 
     <div class="document">
@@ -74,9 +81,24 @@ If one is not passed, one will be created.</td>
 <dd><p><em>dict</em> – This is the data contained in the rune_links.json file.</p>
 </dd></dl>
 
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The rune_links data is structured like so:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;aatrox&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;http://runeforge.gg/loadouts/die-and-be-forgotten/&quot;</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;ahri&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;http://runeforge.gg/loadouts/the-poking-fox/&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;http://runeforge.gg/loadouts/burst-snowball-carry/&quot;</span>
+  <span class="p">],</span> <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 <dl class="method">
 <dt id="lolrune.RuneClient.get_runes">
-<code class="descname">get_runes</code><span class="sig-paren">(</span><em>champion_name: str</em><span class="sig-paren">)</span> &#x2192; typing.Tuple[dict]<a class="headerlink" href="#lolrune.RuneClient.get_runes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_runes</code><span class="sig-paren">(</span><em>champion_name</em><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.RuneClient.get_runes" title="Permalink to this definition">¶</a></dt>
 <dd><p>The main method to retrieve optimal runes for a given champion.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -84,7 +106,9 @@ If one is not passed, one will be created.</td>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>champion_name</strong> (<em>str</em>) – Case insensitive name of the champion to get runes for.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal"><span class="pre">dict</span></code>]</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><em>Tuple[dict]</em> – A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
 contained in the dict<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Varus&quot;</span><span class="p">,</span>
     <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Bloodshed Carries a Price&quot;</span><span class="p">,</span>
@@ -111,8 +135,6 @@ contained in the dict<div class="highlight-python3"><div class="highlight"><pre>
 </pre></div>
 </div>
 </td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Tuple[dict]</td>
 </tr>
 </tbody>
 </table>
@@ -161,9 +183,24 @@ contained in the dict<div class="highlight-python3"><div class="highlight"><pre>
 <dd><p><em>dict</em> – This is the data contained in the rune_links.json file.</p>
 </dd></dl>
 
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The rune_links data is structured like so:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;aatrox&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;http://runeforge.gg/loadouts/die-and-be-forgotten/&quot;</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;ahri&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;http://runeforge.gg/loadouts/the-poking-fox/&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;http://runeforge.gg/loadouts/burst-snowball-carry/&quot;</span>
+  <span class="p">],</span> <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 <dl class="method">
 <dt id="lolrune.AioRuneClient.get_runes">
-<code class="descname">get_runes</code><span class="sig-paren">(</span><em>champion_name: str</em><span class="sig-paren">)</span> &#x2192; typing.Tuple[dict]<a class="headerlink" href="#lolrune.AioRuneClient.get_runes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_runes</code><span class="sig-paren">(</span><em>champion_name</em><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.AioRuneClient.get_runes" title="Permalink to this definition">¶</a></dt>
 <dd><p>The main method to retrieve optimal runes for a given champion.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -171,7 +208,9 @@ contained in the dict<div class="highlight-python3"><div class="highlight"><pre>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>champion_name</strong> (<em>str</em>) – Case insensitive name of the champion to get runes for</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal"><span class="pre">dict</span></code>]</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><em>Tuple[dict]</em> – A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
 contained in the dict:<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Varus&quot;</span><span class="p">,</span>
     <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Bloodshed Carries a Price&quot;</span><span class="p">,</span>
@@ -198,8 +237,6 @@ contained in the dict:<div class="highlight-default"><div class="highlight"><pre
 </pre></div>
 </div>
 </td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Tuple[dict]</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#lolrune.ChampNotFoundError" title="lolrune.ChampNotFoundError"><code class="xref py py-exc docutils literal"><span class="pre">ChampNotFoundError</span></code></a> – If the champion is not found in <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</td>
 </tr>
@@ -242,7 +279,7 @@ contained in the dict:<div class="highlight-default"><div class="highlight"><pre
 <dl class="exception">
 <dt id="lolrune.ChampNotFoundError">
 <em class="property">exception </em><code class="descclassname">lolrune.</code><code class="descname">ChampNotFoundError</code><span class="sig-paren">(</span><em>champ</em><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.ChampNotFoundError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Raised when a champion is not found in the .data/rune_links.json file.</p>
+<dd><p>Raised when a champion is not found in the <code class="docutils literal"><span class="pre">rune_links</span></code>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -262,6 +299,9 @@ contained in the dict:<div class="highlight-default"><div class="highlight"><pre
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+    <a id="sidebar-anchor"></a>
+    
+
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">API Reference</a><ul>
@@ -270,14 +310,10 @@ contained in the dict:<div class="highlight-default"><div class="highlight"><pre
 </ul>
 </li>
 </ul>
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Quick Start</a></li>
-  </ul></li>
-</ul>
-</div>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Quick Start</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -292,20 +328,21 @@ contained in the dict:<div class="highlight-default"><div class="highlight"><pre
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2017, James E.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
-      
-      |
-      <a href="_sources/api.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Quick Start"
+             accesskey="P">previous</a> |</li>
+      </ul>
     </div>
 
-    
-
-    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, James E.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
   </body>
 </html>
