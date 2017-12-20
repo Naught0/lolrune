@@ -51,47 +51,27 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>session</strong> : requests.Session, optional</p>
-<blockquote class="last">
-<div><p>The main session which is used to make all requests.
-If one is not passed, one will be created.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> (<em>requests.Session</em><em>, </em><em>optional</em>) – The main session which is used to make all requests.
+If one is not passed, one will be created.</td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="7%" />
-<col width="93%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>rune_links</strong></td>
-<td>(dict) This is the data contained the .data/rune_links.json file. The structure is as follows::  { “champion_name”: [ “<a class="reference external" href="http://link_to_the_rune.page/">http://link_to_the_rune.page/</a>”, “<a class="reference external" href="http://a_second_link_if.exists/">http://a_second_link_if.exists/</a>” ] }</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#lolrune.RuneClient.get_runes" title="lolrune.RuneClient.get_runes"><code class="xref py py-obj docutils literal"><span class="pre">get_runes</span></code></a>(…)</td>
-<td>The main method to retrieve optimal runes for a given champion.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#lolrune.RuneClient.update_champs" title="lolrune.RuneClient.update_champs"><code class="xref py py-obj docutils literal"><span class="pre">update_champs</span></code></a>()</td>
-<td>A method which updates the .data/rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="lolrune.RuneClient.update_champs">
-<code class="descname">update_champs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.RuneClient.update_champs" title="Permalink to this definition">¶</a></dt>
-<dd><p>A method which updates the .data/rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</p>
-<p>The Runeforge.gg site is frequently updating</p>
+<dl class="attribute">
+<dt id="lolrune.RuneClient.HEADERS">
+<code class="descname">HEADERS</code><a class="headerlink" href="#lolrune.RuneClient.HEADERS" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict</em> – Firefox headers for the particular version used to inspect the html.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lolrune.RuneClient.URL">
+<code class="descname">URL</code><a class="headerlink" href="#lolrune.RuneClient.URL" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – The runeforge.gg url used in requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lolrune.RuneClient.rune_links">
+<code class="descname">rune_links</code><a class="headerlink" href="#lolrune.RuneClient.rune_links" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict</em> – This is the data contained in the rune_links.json file.</p>
 </dd></dl>
 
 <dl class="method">
@@ -102,17 +82,10 @@ If one is not passed, one will be created.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>champion_name</strong> : str</p>
-<blockquote>
-<div><p>Case insensitive name of the champion to get runes for.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>champion_name</strong> (<em>str</em>) – Case insensitive name of the champion to get runes for.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Tuple[dict]</p>
-<blockquote class="last">
-<div><p>A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
-contained in the dict:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
+contained in the dict<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Varus&quot;</span><span class="p">,</span>
     <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Bloodshed Carries a Price&quot;</span><span class="p">,</span>
     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Lethality focused long range poke with [Q].&quot;</span><span class="p">,</span>
@@ -137,11 +110,19 @@ contained in the dict:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div></blockquote>
 </td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Tuple[dict]</td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="lolrune.RuneClient.update_champs">
+<code class="descname">update_champs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.RuneClient.update_champs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A method which updates the rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</p>
+<p>The Runeforge.gg site is frequently updating</p>
 </dd></dl>
 
 </dd></dl>
@@ -154,50 +135,30 @@ contained in the dict:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>session</strong> : aiohttp.ClientSession, optional</p>
-<blockquote>
-<div><p>The aiohttp session used in all requests. If none is provided, a new aiohttp.ClientSession will be created.</p>
-</div></blockquote>
-<p><strong>loop</strong> : asyncio.AbstractEventLoop, optional</p>
-<blockquote class="last">
-<div><p>The asyncio event loop. If none is provided, a new loop will be created.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>session</strong> (<em>aiohttp.ClientSession</em><em>, </em><em>optional</em>) – The aiohttp session used in all requests. If none is provided, a new aiohttp.ClientSession will be created.</li>
+<li><strong>loop</strong> (<em>asyncio.AbstractEventLoop</em><em>, </em><em>optional</em>) – The asyncio event loop. If none is provided, a new loop will be created.</li>
+</ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="7%" />
-<col width="93%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>rune_links</strong></td>
-<td>(dict) This is the data contained the .data/rune_links.json file. The structure is as follows::  { “champion_name”: [ “<a class="reference external" href="http://link_to_the_rune.page/">http://link_to_the_rune.page/</a>”, “<a class="reference external" href="http://a_second_link_if.exists/">http://a_second_link_if.exists/</a>” ] }</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#lolrune.AioRuneClient.get_runes" title="lolrune.AioRuneClient.get_runes"><code class="xref py py-obj docutils literal"><span class="pre">get_runes</span></code></a>(…)</td>
-<td>The main method to retrieve optimal runes for a given champion.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#lolrune.AioRuneClient.update_champs" title="lolrune.AioRuneClient.update_champs"><code class="xref py py-obj docutils literal"><span class="pre">update_champs</span></code></a>()</td>
-<td>A method which updates the .data/rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="lolrune.AioRuneClient.update_champs">
-<code class="descname">update_champs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.AioRuneClient.update_champs" title="Permalink to this definition">¶</a></dt>
-<dd><p>A method which updates the .data/rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</p>
-<p>The Runeforge.gg site is frequently updating</p>
+<dl class="attribute">
+<dt id="lolrune.AioRuneClient.HEADERS">
+<code class="descname">HEADERS</code><a class="headerlink" href="#lolrune.AioRuneClient.HEADERS" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict</em> – Firefox headers for the particular version used to inspect the html.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lolrune.AioRuneClient.URL">
+<code class="descname">URL</code><a class="headerlink" href="#lolrune.AioRuneClient.URL" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – The runeforge.gg url used in requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lolrune.AioRuneClient.rune_links">
+<code class="descname">rune_links</code><a class="headerlink" href="#lolrune.AioRuneClient.rune_links" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict</em> – This is the data contained in the rune_links.json file.</p>
 </dd></dl>
 
 <dl class="method">
@@ -208,17 +169,10 @@ contained in the dict:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>champion_name</strong> : str</p>
-<blockquote>
-<div><p>Case insensitive name of the champion to get runes for</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>champion_name</strong> (<em>str</em>) – Case insensitive name of the champion to get runes for</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Tuple[dict]</p>
-<blockquote>
-<div><p>A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
-contained in the dict:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
+contained in the dict:<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Varus&quot;</span><span class="p">,</span>
     <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Bloodshed Carries a Price&quot;</span><span class="p">,</span>
     <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Lethality focused long range poke with [Q].&quot;</span><span class="p">,</span>
@@ -243,17 +197,21 @@ contained in the dict:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div></blockquote>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>ChampNotFoundError</strong></p>
-<blockquote class="last">
-<div><p>If the champion is not found in <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Tuple[dict]</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#lolrune.ChampNotFoundError" title="lolrune.ChampNotFoundError"><code class="xref py py-exc docutils literal"><span class="pre">ChampNotFoundError</span></code></a> – If the champion is not found in <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="lolrune.AioRuneClient.update_champs">
+<code class="descname">update_champs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.AioRuneClient.update_champs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A method which updates the rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</p>
+<p>The Runeforge.gg site is frequently updating</p>
 </dd></dl>
 
 </dd></dl>
@@ -275,11 +233,7 @@ contained in the dict:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>status</strong> : int</p>
-<blockquote class="last">
-<div><p>The status of the request which failed.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>status</strong> (<em>int</em>) – The status of the request which failed.</td>
 </tr>
 </tbody>
 </table>
@@ -293,11 +247,7 @@ contained in the dict:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>champ</strong> : str</p>
-<blockquote class="last">
-<div><p>The champion which was not found.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>champ</strong> (<em>str</em>) – The champion which was not found.</td>
 </tr>
 </tbody>
 </table>
@@ -315,9 +265,7 @@ contained in the dict:</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">API Reference</a><ul>
-<li><a class="reference internal" href="#clients">Clients</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#clients">Clients</a></li>
 <li><a class="reference internal" href="#exceptions">Exceptions</a></li>
 </ul>
 </li>

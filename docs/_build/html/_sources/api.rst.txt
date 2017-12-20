@@ -7,10 +7,10 @@ Clients
 -------
 
 .. autoclass:: RuneClient
-    :members:
+   :members:
 
 .. autoclass:: AioRuneClient
-    :members:
+   :members:
 
 Exceptions
 ----------

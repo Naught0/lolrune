@@ -20,19 +20,14 @@ class AioRuneClient:
 
     Attributes
     ----------
+    HEADERS : dict
+        Firefox headers for the particular version used to inspect the html.
+
+    URL : str
+        The runeforge.gg url used in requests.
 
     rune_links : dict
-        This is the data contained the .data/rune_links.json file.
-        The structure is as follows
-        
-        .. code-block:: python3
-
-            {
-                "champion_name": [
-                    "http://link_to_the_rune.page/",
-                    "http://a_second_link_if.exists/"
-                ]
-            }
+        This is the data contained in the rune_links.json file.
     """
     HEADERS = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0'}
     URL = 'http://runeforge.gg'
@@ -70,7 +65,7 @@ class AioRuneClient:
                 raise RuneConnectionError(r.status)
 
     async def update_champs(self):
-        """A method which updates the .data/rune_links.json file and ``self.rune_links``.
+        """A method which updates the rune_links.json file and ``self.rune_links``.
 
         The Runeforge.gg site is frequently updating
         """
