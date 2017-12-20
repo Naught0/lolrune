@@ -57,10 +57,10 @@ class RuneClient:
             If the GET response status is not 200.
         """
         resp = self.session.get(url, headers=self.HEADERS)
-        if resp.status is 200:
+        if resp.status_code is 200:
             return resp.text
         else:
-            raise RuneConnectionError(resp.status)
+            raise RuneConnectionError(resp.status_code)
 
     def update_champs(self) -> None:
         """A method which updates the .data/rune_links.json file and ``self.rune_links``.
