@@ -20,11 +20,6 @@ class AioRuneClient:
 
     Attributes
     ----------
-    HEADERS : dict
-        The headers used in all requests
-
-    URL : str
-        The Runeforge url
 
     rune_links : dict
         This is the data contained the .data/rune_links.json file.
@@ -121,7 +116,7 @@ class AioRuneClient:
         Raises
         ------
         ChampNotFoundError
-            If the champion is not found in ``self.rune_links``
+            If the champion is not found in ``self.rune_links``.
         """
         champion_lower = champion_name.lower()
         if champion_lower not in self.rune_links:
