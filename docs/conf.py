@@ -100,7 +100,18 @@ html_theme_path = [sphinx_py3doc_enhanced_theme.get_html_theme_path()]
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-html_theme_options = {'appendcss': 'img{ box-shadow: none }'}
+html_theme_options = {
+    'bodyfont': '"Lucida Grande",Arial,sans-serif',
+    'headfont': '"Lucida Grande",Arial,sans-serif',
+    'codefont': '"Iosevka","Consolas",mono',
+    'appendcss': '''
+        img{box-shadow:none}
+        .literal{background:#fffdfd;
+            box-shadow: 1px 1px 3px #efefef;
+            border: 1px solid #ddd;
+            font-weight:normal;
+            border-radius: 3px;}'''
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

@@ -226,10 +226,10 @@ div.footer a:hover {
 
 div.sphinxsidebar,
 .related a {
-    font-family: 'Myriad Pro', 'Trebuchet Ms', 'Segoe UI', sans-serif;
+    font-family: "Lucida Grande",Arial,sans-serif;
 }
 pre, code, tt {
-    font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', 'Courier New', monospace;
+    font-family: "Iosevka","Consolas",mono;
 }
 
 div.body pre {
@@ -443,4 +443,10 @@ div.badge img {
 
 
 /* appendcss: */
-img{ box-shadow: none }
+
+        img{box-shadow:none}
+        .literal{background:#fffdfd;
+            box-shadow: 1px 1px 3px #efefef;
+            border: 1px solid #ddd;
+            font-weight:normal;
+            border-radius: 3px;}
