@@ -103,7 +103,7 @@ html_theme_path = [sphinx_py3doc_enhanced_theme.get_html_theme_path()]
 html_theme_options = {
     'bodyfont': '"Lucida Grande",Arial,sans-serif',
     'headfont': '"Lucida Grande",Arial,sans-serif',
-    'codefont': '"Iosevka","Consolas",mono',
+    'codefont': '"Iosevka","Consolas",monospace',
     'appendcss': '''
         img{box-shadow:none}
         .literal{background:#fffdfd;
