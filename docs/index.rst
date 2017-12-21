@@ -2,15 +2,21 @@
    sphinx-quickstart on Tue Dec 19 22:23:21 2017.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-
+ 
 .. image:: /images/logo.png
-    :scale: 80%
+    :scale: 60%
     :align: center
+
 
 lolrune is a package which contains two separate clients through which you can fetch
 League of Legends rune information for any champion. 
 
 The information is scraped from Runeforge.gg and returned in a tuple, containing dicts (i.e. JSON friendly).
+
+Installation
+------------
+
+You can install lolrune via pip, à la ``pip install lolrune``. You'll need at least python3.5.
 
 Contents
 ---------
@@ -21,9 +27,8 @@ Contents
 
    api
 
-
-Quick Start
------------
+Quick Example
+-------------
 
 I'll use the default ``RuneClient`` here, using JSON only to prettify the formatting::
 

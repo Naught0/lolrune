@@ -1,8 +1,12 @@
 lolrune
 -------
 
+.. image:: https://readthedocs.org/projects/lolrune/badge/?version=latest
+  :target: http://lolrune.readthedocs.io/en/latest/?badge=latest
+  :alt: Documentation Status
+
 A set of clients which can fetch optimal rune data for a given champion.
-``RuneClient`` utilizes requests, while ``AioRuneClient`` utilizes ``aiohttp`` and ``asyncio``.
+``RuneClient`` utilizes ``requests``, while ``AioRuneClient`` utilizes ``aiohttp`` and ``asyncio``.
 
 Installation
 ~~~~~~~~~~~~
