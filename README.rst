@@ -1,9 +1,7 @@
 lolrune
 -------
 
-.. image:: https://readthedocs.org/projects/lolrune/badge/?version=latest
-  :target: http://lolrune.readthedocs.io/en/latest/?badge=latest
-  :alt: Documentation Status
+|docs| |pypi|
 
 A set of clients which can fetch optimal rune data for a given champion.
 ``RuneClient`` utilizes ``requests``, while ``AioRuneClient`` utilizes ``aiohttp`` and ``asyncio``.
@@ -136,3 +134,10 @@ Issues
 
 If you have any trouble, or see some way to improve the code, please
 submit a PR or an issue.
+
+.. |docs| image:: https://readthedocs.org/projects/lolrune/badge/?version=latest
+  :target: http://lolrune.readthedocs.io/en/latest/?badge=latest
+  :alt: Documentation Status
+
+.. |pypi| image:: https://badge.fury.io/py/lolrune.svg
+  :target: https://badge.fury.io/py/lolrune

@@ -4,3 +4,5 @@ __pycache__/
 \.idea/
 lolrune.egg-info/
 dist/
+.eggs/
+build/
