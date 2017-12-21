@@ -13,7 +13,7 @@ regularly as this is being actively developed.
 Documentation
 ~~~~~~~~~~~~~
 
-You can find the ugly version of the docs at https://naught0.github.io/lolrune/ while http://lolrune.readthedocs.io/ is being difficult.
+You can find the docs at http://lolrune.readthedocs.io/ and a quick example below.
 
 Examples
 ~~~~~~~~
