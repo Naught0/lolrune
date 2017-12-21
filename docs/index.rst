@@ -12,6 +12,16 @@ League of Legends rune information for any champion.
 
 The information is scraped from Runeforge.gg and returned in a tuple, containing dicts (i.e. JSON friendly).
 
+Contents
+---------
+
+.. toctree::
+   :name: Contents
+   :maxdepth: 3
+
+   api
+
+
 Quick Start
 -----------
 
@@ -48,16 +58,6 @@ I'll use the default ``RuneClient`` here, using JSON only to prettify the format
     ]
 
 Be aware, despite ``[]`` displaying here (per the ``json`` module), the return type will be a ``tuple`` for each client.
-
-Contents
----------
-
-.. toctree::
-   :name: Contents
-   :maxdepth: 3
-
-   api
-
 
 Indices and tables
 ------------------
