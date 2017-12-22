@@ -4,6 +4,55 @@ Examples
 ========
 The lolrune library has quite a bit of flexibility between sync/async clients, as well as return formatting.
 
+Clients
+-------
+There are two clients you can use to champion rune data.
+
+.. _rune_client_ex:
+
+RuneClient
+~~~~~~~~~~
+This client utilizes a :class:`requests.Session` to retrieve rune data, and is therefore blocking/synchronous.
+
+.. code:: python3
+   
+   from lolrune import RuneClient
+
+   
+   client = RuneClient()
+   champ_tup = client.get_runes('velkoz')
+
+   for champ in champ_tup:
+      print('{0.name}: {0.description}'.format(champ))
+
+Will yield ``Vel'Koz: Maximum AP and 1-shot potential.``
+
+While searching for a chamption with more than one rune page, like Zoe, will yield:
+
+.. code::
+
+   Zoe: We all grow up! Well, you died
+   Zoe: Sorry! Beauty Always Has Tears
+
+**Note:** All champion names are case insensitive with any special characters removed.
+For example, ``Vel'Koz`` becomes ``velkoz`` and ``Lee Sin`` becomes ``leesin``.
+
+AioRuneClient
+~~~~~~~~~~~~~
+This client utilizes an :class:`asyncio.AbstractEventLoop` and an :class:`aiohttp.ClientSession` to retrieve data, and is therefore non-blocking/asynchronous.
+
+.. code:: python3
+   
+   import asyncio
+   from lolrune import AioRuneClient
+
+   loop = asyncio.get_event_loop()
+   run = loop.run_until_complete
+
+   client = AioRuneClient()
+   # If you're in an async environment, you'll use await for all coroutines.
+   champ_tup = 
+
 Return data format
 ------------------
 There are a few ways in which you can interact with the data retrieved by lolrune.

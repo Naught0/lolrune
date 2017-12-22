@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.1.1.dev6+dirty
+                0.1.1.dev7+dirty
               </div>
             
           
@@ -258,7 +258,7 @@ If one is not passed, one will be created.</td>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Please see <a class="reference internal" href="examples.html#abs-return-formatting"><span class="std std-ref">Abstract return formatting</span></a> for more information on the return type.</p>
+<p class="last">Please see <a class="reference internal" href="examples.html#abs-return-formatting"><span class="std std-ref">Abstract return formatting</span></a> and <a class="reference internal" href="#lolrune.Champion" title="lolrune.Champion"><code class="xref py py-class docutils literal"><span class="pre">Champion</span></code></a> for more information on the return type.</p>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -273,8 +273,8 @@ If one is not passed, one will be created.</td>
 <dl class="method">
 <dt id="lolrune.RuneClient.update_champs">
 <code class="descname">update_champs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.RuneClient.update_champs" title="Permalink to this definition">¶</a></dt>
-<dd><p>A method which updates the rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</p>
-<p>The Runeforge.gg site is frequently updating.</p>
+<dd><p>A method which updates the rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.
+This is useful because runeforge.gg is frequently updating.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -385,7 +385,7 @@ a new session will be created.</li>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Please see <a class="reference internal" href="examples.html#abs-return-formatting"><span class="std std-ref">Abstract return formatting</span></a> for more information on the return type.</p>
+<p class="last">Please see <a class="reference internal" href="examples.html#abs-return-formatting"><span class="std std-ref">Abstract return formatting</span></a> and <a class="reference internal" href="#lolrune.Champion" title="lolrune.Champion"><code class="xref py py-class docutils literal"><span class="pre">Champion</span></code></a> for more information on the return type.</p>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -400,8 +400,8 @@ a new session will be created.</li>
 <dl class="method">
 <dt id="lolrune.AioRuneClient.update_champs">
 <em class="property">coroutine </em><code class="descname">update_champs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.AioRuneClient.update_champs" title="Permalink to this definition">¶</a></dt>
-<dd><p>A method which updates the rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.</p>
-<p>The Runeforge.gg site is frequently updating</p>
+<dd><p>A method which updates the rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.
+This is useful because runeforge.gg is frequently updating.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -425,7 +425,7 @@ a new session will be created.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rune_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><em>dict</em></a>) – The entirety of the rune page data returned by <a class="reference internal" href="#lolrune.RuneClient.get_runes" title="lolrune.RuneClient.get_runes"><code class="xref py py-meth docutils literal"><span class="pre">get_runes()</span></code></a>.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rune_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><em>dict</em></a>) – The entirety of the rune page data returned by <a class="reference internal" href="#lolrune.RuneClient.get_raw" title="lolrune.RuneClient.get_raw"><code class="xref py py-meth docutils literal"><span class="pre">RuneClient.get_raw()</span></code></a> and <a class="reference internal" href="#lolrune.AioRuneClient.get_raw" title="lolrune.AioRuneClient.get_raw"><code class="xref py py-meth docutils literal"><span class="pre">AioRuneClient.get_raw()</span></code></a>.</td>
 </tr>
 </tbody>
 </table>
@@ -455,6 +455,10 @@ This is largely meaningless, e.g. <code class="docutils literal"><span class="pr
 <dd><p><a class="reference internal" href="#lolrune.RunePage" title="lolrune.RunePage"><code class="xref py py-class docutils literal"><span class="pre">RunePage</span></code></a> – Contains rune information.</p>
 </dd></dl>
 
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For more information on this object and other data objects, please see <a class="reference internal" href="examples.html#abs-return-formatting"><span class="std std-ref">Abstract return formatting</span></a></p>
+</div>
 </dd></dl>
 
 <dl class="class">
@@ -485,27 +489,12 @@ This is largely meaningless, e.g. <code class="docutils literal"><span class="pr
 <dt id="lolrune.RunePage.secondary">
 <code class="descname">secondary</code><a class="headerlink" href="#lolrune.RunePage.secondary" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="#lolrune.Tree" title="lolrune.Tree"><code class="xref py py-obj docutils literal"><span class="pre">Tree</span></code></a> – A representation of the secondary rune tree.</p>
-<p class="rubric">Example</p>
-<div class="code python3 highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lolrune</span> <span class="k">import</span> <span class="n">RuneClient</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">RuneClient</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">champ</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_champ</span><span class="p">(</span><span class="s1">&#39;bard&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">runes</span> <span class="o">=</span> <span class="n">champ</span><span class="o">.</span><span class="n">runes</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">champ</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<span class="go">Bard</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">champ</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">champ</span><span class="o">.</span><span class="n">description</span><span class="p">))</span>
-<span class="go">Gimmie All Those Chimes: Map Roaming and kill pressure.</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">runes</span><span class="o">.</span><span class="n">keystone</span><span class="p">)</span>
-<span class="go">Electrocute</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">runes</span><span class="o">.</span><span class="n">primary</span><span class="p">)</span>
-<span class="go">Tree(name=&#39;Domination&#39;, runes=[&#39;Cheap Shot&#39;, &#39;Zombie Ward&#39;, &#39;Relentless Hunter&#39;])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">runes</span><span class="o">.</span><span class="n">primary</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">runes</span><span class="o">.</span><span class="n">primary</span><span class="o">.</span><span class="n">runes</span><span class="p">)))</span>
-<span class="go">Domination: Cheap Shot, Zombie Ward, Relentless Hunter</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">runes</span><span class="o">.</span><span class="n">secondary</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">runes</span><span class="o">.</span><span class="n">secondary</span><span class="o">.</span><span class="n">runes</span><span class="p">)))</span>
-<span class="go">Sorcery: Scorch, Manaflow Band</span>
-</pre></div>
-</div>
 </dd></dl>
 
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For more information on this object and other data objects, please see <a class="reference internal" href="examples.html#abs-return-formatting"><span class="std std-ref">Abstract return formatting</span></a></p>
+</div>
 <dl class="attribute">
 <dt id="lolrune.RunePage.TREE">
 <code class="descname">TREE</code><a class="headerlink" href="#lolrune.RunePage.TREE" title="Permalink to this definition">¶</a></dt>

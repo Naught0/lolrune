@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.1.1.dev6+dirty
+                0.1.1.dev7+dirty
               </div>
             
           
@@ -92,6 +92,10 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#clients">Clients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#runeclient">RuneClient</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#return-data-format">Return data format</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#raw-return-formatting">Raw return formatting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#abstract-return-formatting">Abstract return formatting</a></li>
@@ -166,6 +170,32 @@
   <div class="section" id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
 <p>The lolrune library has quite a bit of flexibility between sync/async clients, as well as return formatting.</p>
+<div class="section" id="clients">
+<h2>Clients<a class="headerlink" href="#clients" title="Permalink to this headline">¶</a></h2>
+<p>There are two clients you can use to champion rune data.</p>
+<div class="section" id="runeclient">
+<span id="rune-client-ex"></span><h3>RuneClient<a class="headerlink" href="#runeclient" title="Permalink to this headline">¶</a></h3>
+<p>This client utilizes a <a class="reference external" href="http://docs.python-requests.org/en/master/api/#requests.Session" title="(in Requests v2.18.4)"><code class="xref py py-class docutils literal"><span class="pre">requests.Session</span></code></a> to retrieve rune data, and is therefore blocking/synchronous.</p>
+<div class="code python3 highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lolrune</span> <span class="k">import</span> <span class="n">RuneClient</span>
+
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">RuneClient</span><span class="p">()</span>
+<span class="n">champ_tup</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_runes</span><span class="p">(</span><span class="s1">&#39;velkoz&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">champ</span> <span class="ow">in</span> <span class="n">champ_tup</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0.name}</span><span class="s1">: </span><span class="si">{0.description}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">champ</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Will yield <code class="docutils literal"><span class="pre">Vel'Koz:</span> <span class="pre">Maximum</span> <span class="pre">AP</span> <span class="pre">and</span> <span class="pre">1-shot</span> <span class="pre">potential.</span></code></p>
+<p>While searching for a chamption with more than one rune page, like Zoe, will yield:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span>Zoe: We all grow up! Well, you died
+Zoe: Sorry! Beauty Always Has Tears
+</pre></div>
+</div>
+<p><strong>Note:</strong> All champion names are case insensitive with any special characters removed.
+For example, <code class="docutils literal"><span class="pre">Vel'Koz</span></code> becomes <code class="docutils literal"><span class="pre">velkoz</span></code> and <code class="docutils literal"><span class="pre">Lee</span> <span class="pre">Sin</span></code> becomes <code class="docutils literal"><span class="pre">leesin</span></code>.</p>
+</div>
+</div>
 <div class="section" id="return-data-format">
 <h2>Return data format<a class="headerlink" href="#return-data-format" title="Permalink to this headline">¶</a></h2>
 <p>There are a few ways in which you can interact with the data retrieved by lolrune.</p>

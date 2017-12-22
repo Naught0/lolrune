@@ -25,7 +25,7 @@ class Champion:
     Parameters
     ----------
     rune_data : dict
-        The entirety of the rune page data returned by :meth:`~lolrune.RuneClient.get_runes`.
+        The entirety of the rune page data returned by :meth:`RuneClient.get_raw` and :meth:`AioRuneClient.get_raw`.
 
     Attributes
     ----------
@@ -42,6 +42,10 @@ class Champion:
 
     runes : :class:`RunePage`
         Contains rune information.
+
+    Note
+    ----
+    For more information on this object and other data objects, please see :ref:`abs_return_formatting`
     """
     def __init__(self, rune_data: dict):
         self.name = rune_data['name']
@@ -79,7 +83,7 @@ class RunePage:
 
     Note
     ----
-    Please see 
+    For more information on this object and other data objects, please see :ref:`abs_return_formatting`
     """
     TREE = namedtuple('Tree', 'name runes')
     def __init__(self, rune_page: dict):

@@ -8,8 +8,7 @@
     :align: center
 
 
-lolrune is a package which contains two separate clients through which you can fetch
-League of Legends rune information for any champion. 
+lolrune is a package which contains two clients (async and non-async), through which you can fetch League of Legends rune information for any champion. 
 
 Contents
 ---------

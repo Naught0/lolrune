@@ -77,8 +77,7 @@ class RuneClient:
 
     def update_champs(self):
         """A method which updates the rune_links.json file and ``self.rune_links``.
-
-        The Runeforge.gg site is frequently updating.
+        This is useful because runeforge.gg is frequently updating.
 
         Raises
         ------
@@ -136,7 +135,7 @@ class RuneClient:
         
         Note
         ----
-        Please see :ref:`abs_return_formatting` for more information on the return type.
+        Please see :ref:`abs_return_formatting` and :class:`Champion` for more information on the return type.
 
         Raises
         ------
