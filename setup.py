@@ -15,6 +15,7 @@ except (FileNotFoundError, IOError):
 setup(
     name='lolrune',
     packages=['lolrune'],
+    include_package_data=True,
     use_scm_version={
         'version_scheme': 'guess-next-dev',
         'local_scheme': 'dirty-tag'

@@ -49,6 +49,14 @@ class Champion:
         self.description = rune_data['description']
         self.runes = RunePage(rune_data['runes'])
 
+    def __repr__(self) -> str:
+        return '<Champion name={0.name} description={0.description}>'.format(self)
+
+    def __eq__(self, other) -> bool:
+        return all(isinstance(other, Champion), 
+                   self.name == other.name, 
+                   self.description == other.description)
+
 
 class RunePage:
     """An object representing a specific rune page for a :class:`~lolrune.Champion`.
@@ -69,26 +77,9 @@ class RunePage:
     secondary : :obj:`Tree`
         A representation of the secondary rune tree.
 
-        Example
-        -------
-        .. code:: python3
-
-            >>> from lolrune import RuneClient
-            >>> client = RuneClient()
-            >>> champ = client.get_runes('bard')[0]
-
-            >>> print(champ.name)
-            Bard
-            >>> print('{}: {}'.format(champ.title, champ.description))
-            Gimmie All Those Chimes: Map Roaming and kill pressure.
-            >>> print(champ.runes.keystone)
-            Electrocute
-            >>> print(champ.runes.primary)
-            Tree(name='Domination', runes=['Cheap Shot', 'Zombie Ward', 'Relentless Hunter'])
-            >>> print('{}: {}'.format(champ.runes.primary.name, ', '.join(champ.runes.primary.runes)))
-            Domination: Cheap Shot, Zombie Ward, Relentless Hunter
-            >>> print('{}: {}'.format(champ.runes.secondary.name, ', '.join(champ.runes.secondary.runes)))
-            Sorcery: Scorch, Manaflow Band
+    Note
+    ----
+    Please see 
     """
     TREE = namedtuple('Tree', 'name runes')
     def __init__(self, rune_page: dict):
@@ -96,3 +87,11 @@ class RunePage:
         self.keystone = rune_page['primary']['keystone']
         self.primary = self.TREE(name=rune_page['primary']['name'], runes=rune_page['primary']['rest'])
         self.secondary = self.TREE(name=rune_page['secondary']['name'], runes=rune_page['secondary']['rest'])
+
+    def __repr__(self) -> str:
+        return '<RunePage keystone={0.keystone} secondary={0.secondary.name}>'.format(self)
+
+    def __eq__(self, other) -> bool:
+        return all(isinstance(other, Champion), 
+                   self.name == other.name, 
+                   self.description == other.description)

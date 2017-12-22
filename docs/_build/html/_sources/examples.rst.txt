@@ -1,0 +1,114 @@
+.. currentmodule:: lolrune
+
+Examples
+========
+The lolrune library has quite a bit of flexibility between sync/async clients, as well as return formatting.
+
+Return data format
+------------------
+There are a few ways in which you can interact with the data retrieved by lolrune.
+
+.. _raw_return_formatting:
+
+Raw return formatting
+~~~~~~~~~~~~~~~~~~~~~
+The lolrune API returns its data in a :class:`Tuple[dict]` format. You can easily interact with the raw data on this level.
+
+**Note**: Most champions will return a tuple with a *single item*, i.e. a *single rune page*. Both :meth:`RuneClient.get_raw()` and :meth:`AioRuneClient.get_raw()` will automatically return data in this format:
+
+.. code:: python3
+   
+   (
+      {
+       'name': 'Varus',
+       'title': 'Bloodshed Carries a Price',
+       'description': 'Lethality focused long range poke with [Q].',
+       'runes': {
+         'primary': {
+           'name': 'Sorcery',
+           'keystone': 'Arcane Comet',
+           'rest': [
+             'Manaflow Band',
+             'Celerity',
+             'Scorch'
+           ]
+         },
+         'secondary': {
+           'name': 'Precision',
+           'rest': [
+             'Triumph',
+             'Coup De Grace'
+           ]
+         }
+       }
+     },
+     {
+       'name': 'Varus',
+       'title': 'Blighted Arrow Dominance',
+       'description': 'Massive sustained shred damage.',
+       'runes': {
+         'primary': {
+           'name': 'Precision',
+           'keystone': 'Press the Attack',
+           'rest': [
+             'Triumph',
+             'Legend: Bloodline',
+             'Coup De Grace'
+           ]
+         },
+         'secondary': {
+           'name': 'Domination',
+           'rest': [
+             'Taste of Blood',
+             'Ravenous Hunter'
+           ]
+         }
+       }
+     }
+   )
+
+.. _abs_return_formatting:
+
+Abstract return formatting
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+If you would prefer a more pythonic interface, one is provided.
+
+lolrune includes a :class:`Champion` class, which contains the returned :class:`RunePage`, which holds the two rune :class:`Tree`\s. In order to access this interface, you may call :meth:`RuneClient.get_runes()` and :meth:`AioRuneClient.get_runes()`\, depending on your client of choice.
+
+**Structure:**
+
+.. code::
+
+   Champion
+   ├───description : str
+   ├───name : str
+   ├───runes : RunePage
+   │   ├───keystone : str
+   │   ├───primary : Tree
+   │   │   ├───name : str
+   │   │   └───runes : List[str]
+   │   └───secondary : Tree
+   │       ├───name : str
+   │       └───runes : List[str]
+   └───title : str
+
+**Usage:**
+
+.. code:: python3
+   
+   >>> from lolrune import RuneClient
+   >>> client = RuneClient()
+   >>> champ = client.get_champ('varus')[0] # This method returns a tuple
+   >>> runes = champ.runes
+   >>> champ.name
+   'Varus'
+   >>> champ.title
+   'Bloodshed Carries a Price'
+   >>> champ.description
+   'Lethality focused long range poke with [Q].'
+   >>> runes.keystone
+   'Arcane Comet'
+   >>> runes.primary
+   Tree(name='Sorcery', runes=['Manaflow Band', 'Celerity', 'Scorch'])
+   >>> runes.secondary
+   Tree(name='Precision', runes=['Triumph', 'Coup De Grace'])

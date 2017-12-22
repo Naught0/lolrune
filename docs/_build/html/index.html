@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Warning &mdash; lolrune  documentation</title>
+  <title>Contents &mdash; lolrune  documentation</title>
   
 
   
@@ -36,7 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="lolrune  documentation" href="#"/>
-        <link rel="next" title="API Reference" href="api.html"/> 
+        <link rel="next" title="Examples" href="examples.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.1.1.dev3+dirty
+                0.1.1.dev6+dirty
               </div>
             
           
@@ -90,6 +90,7 @@
             
             
               <ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
 </ul>
 
@@ -135,7 +136,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>Warning</li>
+      <li>Contents</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -157,14 +158,18 @@
   <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" class="align-center" src="_images/logo.png" style="width: 330.0px; height: 150.0px;" /></a>
 <p>lolrune is a package which contains two separate clients through which you can fetch
 League of Legends rune information for any champion.</p>
-<div class="section" id="warning">
-<h1>Warning<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h1>
-<p>This is the dev code which is a major breaking change to previous schemas in earlier versions of lolrune.</p>
-</div>
 <div class="section" id="contents">
 <h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound" id="id1">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#return-data-format">Return data format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#raw-return-formatting">Raw return formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#abstract-return-formatting">Abstract return formatting</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api.html#clients">Clients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#data-classes">Data Classes</a></li>
@@ -172,33 +177,6 @@ League of Legends rune information for any champion.</p>
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="quick-example">
-<h1>Quick Example<a class="headerlink" href="#quick-example" title="Permalink to this headline">¶</a></h1>
-<div class="code python3 highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lolrune</span> <span class="k">import</span> <span class="n">RuneClient</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">RuneClient</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">champ</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_runes</span><span class="p">(</span><span class="s1">&#39;kalista&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">runes</span> <span class="o">=</span> <span class="n">champ</span><span class="o">.</span><span class="n">runes</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">champ</span><span class="o">.</span><span class="n">name</span>
-<span class="go">&#39;Kalista&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">champ</span><span class="o">.</span><span class="n">title</span>
-<span class="go">&#39;Hip Hop a Potamus&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">champ</span><span class="o">.</span><span class="n">description</span>
-<span class="go">&#39;Maximum execute damage.&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">runes</span>
-<span class="go">&lt;lolrune.runepage.RunePage object at 0x7fce9b5fc940&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">runes</span><span class="o">.</span><span class="n">keystone</span>
-<span class="go">&#39;Press the Attack&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">runes</span><span class="o">.</span><span class="n">primary</span><span class="o">.</span><span class="n">name</span>
-<span class="go">&#39;Precision&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">runes</span><span class="o">.</span><span class="n">primary</span><span class="o">.</span><span class="n">runes</span>
-<span class="go">[&#39;Overheal&#39;, &#39;Legend: Bloodline&#39;, &#39;Coup De Grace&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">runes</span><span class="o">.</span><span class="n">secondary</span><span class="o">.</span><span class="n">name</span>
-<span class="go">&#39;Domination&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">runes</span><span class="o">.</span><span class="n">secondary</span><span class="o">.</span><span class="n">runes</span>
-<span class="go">[&#39;Sudden Impact&#39;, &#39;Ghost Poro&#39;]</span>
-</pre></div>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
@@ -219,7 +197,7 @@ League of Legends rune information for any champion.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="api.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

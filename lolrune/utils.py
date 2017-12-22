@@ -14,7 +14,7 @@ def load_rune_file() -> Union[dict, None]:
         - ``None`` otherwise.
     """
     try:
-        with open('rune_links.json') as f:
+        with open('data/rune_links.json') as f:
             links = json.load(f)
 
     except (FileNotFoundError, json.JSONDecodeError):
@@ -51,7 +51,7 @@ def parse_rune_links(html: str) -> dict:
     champs_combined = {**single_champs, **double_champs}
 
     # Write to data file
-    with open('rune_links.json', 'w') as f:
+    with open('data/rune_links.json', 'w') as f:
         json.dump(champs_combined, f, indent=2, sort_keys=True)
 
     return champs_combined

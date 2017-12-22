@@ -36,7 +36,8 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
     'sphinx.ext.intersphinx',
-    'sphinx_autodoc_typehints'
+    'sphinx_autodoc_typehints',
+    'sphinxcontrib.asyncio'
 ]
 
 # Intersphinx config

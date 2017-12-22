@@ -93,8 +93,8 @@ class AioRuneClient:
         html = await self._get(self.URL)
         self.rune_links = utils.parse_rune_links(html)
 
-    async def get_runes(self, champion_name: str) -> Tuple[Champion]:
-        """The main method to retrieve optimal runes for a given champion.
+    async def get_raw(self, champion_name: str) -> Tuple[dict]:
+        """A method to retrieve **raw** optimal runes for a given champion.
 
         Parameters
         ----------
@@ -103,8 +103,12 @@ class AioRuneClient:
 
         Returns
         -------
-        Tuple[:class:`Champion`]
-            A tuple of champion objects which contain the rune information.
+        Tuple[dict]
+            A tuple of dicts which contain the rune information.
+
+        Note
+        ----
+        Please see :ref:`raw_return_formatting` for more information on the return type.
 
         Raises
         ------
@@ -118,6 +122,38 @@ class AioRuneClient:
         rune_list = []
         for x in self.rune_links[champion_lower]:
             html = await self._get(x)
-            rune_list.append(Champion(utils.parse_rune_html(html)))
+            rune_list.append(utils.parse_rune_html(html))
 
         return tuple(rune_list)
+
+    async def get_runes(self, champion_name: str) -> Tuple[Champion]:
+        """A method to retrieve a champion's runepage objects.
+        
+        Parameters
+        ----------
+        champion_name : str
+            Case insensitive name of the champion to get runes for.
+        
+        Returns
+        -------
+        Tuple[:class:`Champion`]
+            A tuple of :class:`Champion`\s. 
+
+        Note
+        ----
+        Please see :ref:`abs_return_formatting` for more information on the return type.
+
+        Raises
+        ------
+        ChampNotFoundError
+            If the champion is not found in ``self.rune_links``.
+        """
+        champion_lower = champion_name.lower()
+        if champion_lower not in self.rune_links:
+            raise ChampNotFoundError(champ_name)
+
+        champ_list = []
+        for x in await self.get_raw(champion_lower):
+            champ_list.append(Champion(x))
+
+        return tuple(champ_list)
