@@ -35,8 +35,16 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
+    'sphinx.ext.intersphinx',
     'sphinx_autodoc_typehints'
 ]
+
+# Intersphinx config
+intersphinx_mapping = {
+    'aiohttp': ('https://aiohttp.readthedocs.io/en/stable/', None),
+    'requests': ('http://docs.python-requests.org/en/master/', None),
+    'python': ('http://docs.python.org/3', None),
+}
 
 napoleon_google_docstring = False
 napoleon_numpy_docstring = True

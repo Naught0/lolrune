@@ -58,7 +58,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> (<em>requests.Session</em><em>, </em><em>optional</em>) – The main session which is used to make all requests.
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session</strong> (<a class="reference external" href="http://docs.python-requests.org/en/master/api/#requests.Session" title="(in Requests v2.18.4)"><em>requests.Session</em></a><em>, </em><em>optional</em>) – The main session which is used to make all requests.
 If one is not passed, one will be created.</td>
 </tr>
 </tbody>
@@ -104,9 +104,9 @@ If one is not passed, one will be created.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>champion_name</strong> (<em>str</em>) – Case insensitive name of the champion to get runes for.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>champion_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Case insensitive name of the champion to get runes for.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal"><span class="pre">dict</span></code>]</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Tuple</span></code>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a>]</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><em>Tuple[dict]</em> – A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
 contained in the dict<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -158,8 +158,8 @@ contained in the dict<div class="highlight-python3"><div class="highlight"><pre>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>session</strong> (<em>aiohttp.ClientSession</em><em>, </em><em>optional</em>) – The aiohttp session used in all requests. If none is provided, a new aiohttp.ClientSession will be created.</li>
-<li><strong>loop</strong> (<em>asyncio.AbstractEventLoop</em><em>, </em><em>optional</em>) – The asyncio event loop. If none is provided, a new loop will be created.</li>
+<li><strong>session</strong> (<a class="reference external" href="https://aiohttp.readthedocs.io/en/stable/client_reference.html#aiohttp.ClientSession" title="(in aiohttp v2.3)"><code class="xref py py-class docutils literal"><span class="pre">aiohttp.ClientSession</span></code></a>, optional) – The aiohttp session used in all requests. If none is provided, a new <a class="reference external" href="https://aiohttp.readthedocs.io/en/stable/client_reference.html#aiohttp.ClientSession" title="(in aiohttp v2.3)"><code class="xref py py-class docutils literal"><span class="pre">aiohttp.ClientSession</span></code></a> will be created.</li>
+<li><strong>loop</strong> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.AbstractEventLoop" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">asyncio.AbstractEventLoop</span></code></a>, optional) – The asyncio event loop. If none is provided, a new loop will be created.</li>
 </ul>
 </td>
 </tr>
@@ -206,9 +206,9 @@ contained in the dict<div class="highlight-python3"><div class="highlight"><pre>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>champion_name</strong> (<em>str</em>) – Case insensitive name of the champion to get runes for</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>champion_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Case insensitive name of the champion to get runes for</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal"><span class="pre">dict</span></code>]</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Tuple</span></code>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a>]</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><em>Tuple[dict]</em> – A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
 contained in the dict:<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -254,6 +254,103 @@ contained in the dict:<div class="highlight-default"><div class="highlight"><pre
 </dd></dl>
 
 </div>
+<div class="section" id="data-classes">
+<h2>Data Classes<a class="headerlink" href="#data-classes" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lolrune.Champion">
+<em class="property">class </em><code class="descclassname">lolrune.</code><code class="descname">Champion</code><span class="sig-paren">(</span><em>rune_data: dict</em><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.Champion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a champion and contains that champ’s rune page.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rune_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><em>dict</em></a>) – The entirety of the rune page data returned by <a class="reference internal" href="#lolrune.RuneClient.get_runes" title="lolrune.RuneClient.get_runes"><code class="xref py py-meth docutils literal"><span class="pre">get_runes()</span></code></a>.</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="lolrune.Champion.champ_name">
+<code class="descname">champ_name</code><a class="headerlink" href="#lolrune.Champion.champ_name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – The champion’s name e.g. <code class="docutils literal"><span class="pre">'Kalista'</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lolrune.Champion.title">
+<code class="descname">title</code><a class="headerlink" href="#lolrune.Champion.title" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – The title assigned to the particular champion’s rune page by runeforge.gg.
+This is largely meaningless, e.g. <code class="docutils literal"><span class="pre">'Bloodshed</span> <span class="pre">Carries</span> <span class="pre">a</span> <span class="pre">Price'</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lolrune.Champion.description">
+<code class="descname">description</code><a class="headerlink" href="#lolrune.Champion.description" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – A slightly less meaningless description of the rune page.
+For example, <code class="docutils literal"><span class="pre">'Lethality</span> <span class="pre">focused</span> <span class="pre">long</span> <span class="pre">range</span> <span class="pre">poke</span> <span class="pre">with</span> <span class="pre">[Q].'</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lolrune.Champion.runes">
+<code class="descname">runes</code><a class="headerlink" href="#lolrune.Champion.runes" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#lolrune.RunePage" title="lolrune.RunePage"><code class="xref py py-class docutils literal"><span class="pre">RunePage</span></code></a> – A <code class="xref py py-class docutils literal"><span class="pre">&lt;lolrune.RunePage&gt;</span></code> object which contains rune information.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="lolrune.RunePage">
+<em class="property">class </em><code class="descclassname">lolrune.</code><code class="descname">RunePage</code><span class="sig-paren">(</span><em>rune_page: dict</em><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.RunePage" title="Permalink to this definition">¶</a></dt>
+<dd><p>An object representing a specific rune page for a <a class="reference internal" href="#lolrune.Champion" title="lolrune.Champion"><code class="xref py py-class docutils literal"><span class="pre">Champion</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rune_page</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><em>dict</em></a>) – The nested data contained in <code class="docutils literal"><span class="pre">rune_data['runes']</span></code>.</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="lolrune.RunePage.keystone">
+<code class="descname">keystone</code><a class="headerlink" href="#lolrune.RunePage.keystone" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – The keystone for the page, e.g. <code class="docutils literal"><span class="pre">'Arcane</span> <span class="pre">Comet'</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lolrune.RunePage.primary">
+<code class="descname">primary</code><a class="headerlink" href="#lolrune.RunePage.primary" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>namedtuple</em> – A representation of the primary rune tree.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lolrune.RunePage.secondary">
+<code class="descname">secondary</code><a class="headerlink" href="#lolrune.RunePage.secondary" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>namedtuple</em> – A representation of the secondary rune tree.</p>
+<p class="rubric">Example</p>
+<div class="code python3 highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lolrune</span> <span class="k">import</span> <span class="n">RuneClient</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">RuneClient</span><span class="p">()</span>
+<span class="n">champ</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_runes</span><span class="p">(</span><span class="s1">&#39;bard&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">champ</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">champ</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">champ</span><span class="o">.</span><span class="n">description</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">champ</span><span class="o">.</span><span class="n">trees</span><span class="o">.</span><span class="n">keystone</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">champ</span><span class="o">.</span><span class="n">trees</span><span class="o">.</span><span class="n">primary</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">champ</span><span class="o">.</span><span class="n">trees</span><span class="o">.</span><span class="n">primary</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">champ</span><span class="o">.</span><span class="n">trees</span><span class="o">.</span><span class="n">primary</span><span class="o">.</span><span class="n">runes</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">champ</span><span class="o">.</span><span class="n">trees</span><span class="o">.</span><span class="n">secondary</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">champ</span><span class="o">.</span><span class="n">trees</span><span class="o">.</span><span class="n">secondary</span><span class="o">.</span><span class="n">runes</span><span class="p">)))</span>
+
+<span class="c1"># Outputs</span>
+<span class="n">Bard</span>
+<span class="n">Gimmie</span> <span class="n">All</span> <span class="n">Those</span> <span class="n">Chimes</span><span class="p">:</span> <span class="n">Map</span> <span class="n">Roaming</span> <span class="ow">and</span> <span class="n">kill</span> <span class="n">pressure</span><span class="o">.</span>
+<span class="n">Electrocute</span>
+<span class="n">Tree</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Domination&#39;</span><span class="p">,</span> <span class="n">runes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Cheap Shot&#39;</span><span class="p">,</span> <span class="s1">&#39;Zombie Ward&#39;</span><span class="p">,</span> <span class="s1">&#39;Relentless Hunter&#39;</span><span class="p">])</span>
+<span class="n">Domination</span><span class="p">:</span> <span class="n">Cheap</span> <span class="n">Shot</span><span class="p">,</span> <span class="n">Zombie</span> <span class="n">Ward</span><span class="p">,</span> <span class="n">Relentless</span> <span class="n">Hunter</span>
+<span class="n">Sorcery</span><span class="p">:</span> <span class="n">Scorch</span><span class="p">,</span> <span class="n">Manaflow</span> <span class="n">Band</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="exceptions">
 <h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
 <dl class="exception">
@@ -270,7 +367,7 @@ contained in the dict:<div class="highlight-default"><div class="highlight"><pre
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>status</strong> (<em>int</em>) – The status of the request which failed.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – The status of the request which failed.</td>
 </tr>
 </tbody>
 </table>
@@ -284,7 +381,7 @@ contained in the dict:<div class="highlight-default"><div class="highlight"><pre
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>champ</strong> (<em>str</em>) – The champion which was not found.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>champ</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – The champion which was not found.</td>
 </tr>
 </tbody>
 </table>
@@ -306,6 +403,7 @@ contained in the dict:<div class="highlight-default"><div class="highlight"><pre
   <ul>
 <li><a class="reference internal" href="#">API Reference</a><ul>
 <li><a class="reference internal" href="#clients">Clients</a></li>
+<li><a class="reference internal" href="#data-classes">Data Classes</a></li>
 <li><a class="reference internal" href="#exceptions">Exceptions</a></li>
 </ul>
 </li>

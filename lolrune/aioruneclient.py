@@ -12,10 +12,11 @@ class AioRuneClient:
 
     Parameters
     ----------
-    session : aiohttp.ClientSession, optional
-        The aiohttp session used in all requests. If none is provided, a new aiohttp.ClientSession will be created.
+    session : :class:`aiohttp.ClientSession`, optional
+        The aiohttp session used in all requests. If none is provided,
+        a new session will be created.
 
-    loop : asyncio.AbstractEventLoop, optional
+    loop : :class:`asyncio.AbstractEventLoop`, optional
         The asyncio event loop. If none is provided, a new loop will be created.
 
     Attributes
