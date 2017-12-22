@@ -18,7 +18,7 @@ class RuneConnectionError(LoLRuneException):
 
 
 class ChampNotFoundError(LoLRuneException):
-    """Raised when a champion is not found in the ``rune_links``.
+    """Raised when a champion is not found in ``self.rune_links``.
 
     Parameters
     ----------

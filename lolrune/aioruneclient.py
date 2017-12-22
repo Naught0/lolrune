@@ -3,12 +3,13 @@ from typing import Tuple
 
 import aiohttp
 
-import lolrune.utils as utils
+from . import utils
+from .runepage import Champion 
 from .errors import *
 
 
 class AioRuneClient:
-    """An asynchronous version of the RuneClient used to fetch optimal runes for a champ
+    """An asynchronous version of :class:`RuneClient` used to fetch optimal runes for champions.
 
     Parameters
     ----------
@@ -52,8 +53,8 @@ class AioRuneClient:
         self.session = aiohttp.ClientSession(loop=self.loop) or session
         self.rune_links = utils.load_rune_file()
         if self.rune_links is None:
-            self.rune_links = utils.parse_rune_links(
-                self.loop.run_until_complete(self._get(self.URL)))
+            self.rune_links = utils.parse_rune_links(self.loop.run_until_complete(
+                self._get(self.URL)))
 
     async def _get(self, url: str) -> str:
         """A small wrapper method which makes a quick GET request
@@ -83,47 +84,27 @@ class AioRuneClient:
         """A method which updates the rune_links.json file and ``self.rune_links``.
 
         The Runeforge.gg site is frequently updating
+
+        Raises
+        ------
+        RuneConnectionError
+            If the request does not return with a status of 200.
         """
         html = await self._get(self.URL)
         self.rune_links = utils.parse_rune_links(html)
 
-    async def get_runes(self, champion_name: str) -> Tuple[dict]:
+    async def get_runes(self, champion_name: str) -> Tuple[Champion]:
         """The main method to retrieve optimal runes for a given champion.
 
         Parameters
         ----------
         champion_name : str
-            Case insensitive name of the champion to get runes for
+            Case insensitive name of the champion to get runes for.
 
         Returns
         -------
-        Tuple[dict]
-            A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
-            contained in the dict::
-
-                {
-                    "name": "Varus",
-                    "title": "Bloodshed Carries a Price",
-                    "description": "Lethality focused long range poke with [Q].",
-                    "runes": {
-                        "primary": {
-                            "name": "Sorcery",
-                            "keystone": "Arcane Comet",
-                            "rest": [
-                                "Manaflow Band",
-                                "Celerity",
-                                "Scorch"
-                            ]
-                        },
-                        "secondary": {
-                            "name": "Precision",
-                            "rest": [
-                                "Triumph",
-                                "Coup De Grace"
-                            ]
-                        }
-                    }
-                }
+        Tuple[:class:`Champion`]
+            A tuple of champion objects which contain the rune information.
 
         Raises
         ------
@@ -137,6 +118,6 @@ class AioRuneClient:
         rune_list = []
         for x in self.rune_links[champion_lower]:
             html = await self._get(x)
-            rune_list.append(utils.parse_rune_html(html))
+            rune_list.append(Champion(utils.parse_rune_html(html)))
 
         return tuple(rune_list)

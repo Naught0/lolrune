@@ -2,7 +2,8 @@ from typing import Tuple
 
 import requests
 
-import lolrune.utils as utils
+from . import utils
+from .runepage import Champion
 from .errors import *
 
 
@@ -11,7 +12,7 @@ class RuneClient:
 
     Parameters
     ----------
-    session : requests.Session, optional
+    session : :class:`requests.Session`, optional
         The main session which is used to make all requests.
         If one is not passed, one will be created.
 
@@ -77,11 +78,16 @@ class RuneClient:
     def update_champs(self):
         """A method which updates the rune_links.json file and ``self.rune_links``.
 
-        The Runeforge.gg site is frequently updating
+        The Runeforge.gg site is frequently updating.
+
+        Raises
+        ------
+        RuneConnectionError
+            If the GET response status is not 200.
         """
         self.rune_links = utils.parse_rune_links(self._get(self.URL))
 
-    def get_runes(self, champion_name: str) -> Tuple[dict]:
+    def get_runes(self, champion_name: str) -> Tuple[Champion]:
         """The main method to retrieve optimal runes for a given champion.
 
         Parameters
@@ -91,35 +97,13 @@ class RuneClient:
 
         Returns
         -------
-        Tuple[dict]
-            A tuple of dicts which contain the Runeforge data. Below is an example of Runeforge data
-            contained in the dict
-            
-            .. code-block:: python3
+        Tuple[:class:`Champion`]
+            A tuple of champion objects which contain the rune information.
 
-                {
-                    "name": "Varus",
-                    "title": "Bloodshed Carries a Price",
-                    "description": "Lethality focused long range poke with [Q].",
-                    "runes": {
-                        "primary": {
-                            "name": "Sorcery",
-                            "keystone": "Arcane Comet",
-                            "rest": [
-                                "Manaflow Band",
-                                "Celerity",
-                                "Scorch"
-                            ]
-                        },
-                        "secondary": {
-                            "name": "Precision",
-                            "rest": [
-                                "Triumph",
-                                "Coup De Grace"
-                            ]
-                        }
-                    }
-                }
+        Raises
+        ------
+        ChampNotFoundError
+            If the champion is not found in ``self.rune_links``.
         """
         # Check whether input is valid
         champion_lower = champion_name.lower()
@@ -129,6 +113,6 @@ class RuneClient:
         rune_list = []
         for x in self.rune_links[champion_lower]:
             html = self._get(x)
-            rune_list.append(utils.parse_rune_html(html))
+            rune_list.append(Champion(utils.parse_rune_html(html)))
 
         return tuple(rune_list)
