@@ -21,6 +21,8 @@ Data Classes
 .. autoclass:: RunePage
    :members:
 
+.. autoclass:: Tree
+
 Exceptions
 ----------
 

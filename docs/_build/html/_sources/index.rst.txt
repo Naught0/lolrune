@@ -11,12 +11,10 @@
 lolrune is a package which contains two separate clients through which you can fetch
 League of Legends rune information for any champion. 
 
-The information is scraped from Runeforge.gg and returned in a tuple, containing dicts (i.e. JSON friendly).
+Warning
+--------
 
-Installation
-------------
-
-You can install lolrune via pip, à la ``pip install lolrune``. You'll need at least python3.5.
+This is the dev code which is a major breaking change to previous schemas in earlier versions of lolrune.
 
 Contents
 ---------
@@ -30,39 +28,30 @@ Contents
 Quick Example
 -------------
 
-I'll use the default ``RuneClient`` here, using JSON only to prettify the formatting::
+.. code:: python3
 
-    >>> import json
-    >>> from lolrune import RuneClient
-    >>> client = RuneClient()
-    >>> print(json.dumps(client.get_runes('varus'), indent=2))
-    [
-      {
-        "name": "Varus",
-        "title": "Bloodshed Carries a Price",
-        "description": "Lethality focused long range poke with [Q].",
-        "runes": {
-          "primary": {
-            "name": "Sorcery",
-            "keystone": "Arcane Comet",
-            "rest": [
-              "Manaflow Band",
-              "Celerity",
-              "Scorch"
-            ]
-          },
-          "secondary": {
-            "name": "Precision",
-            "rest": [
-              "Triumph",
-              "Coup De Grace"
-            ]
-          }
-        }
-      }, ...
-    ]
-
-Be aware, despite ``[]`` displaying here (per the ``json`` module), the return type will be a ``tuple`` for each client.
+  >>> from lolrune import RuneClient
+  >>> client = RuneClient()
+  >>> champ = client.get_runes('kalista')[0]
+  >>> runes = champ.runes
+  >>> champ.name
+  'Kalista'
+  >>> champ.title
+  'Hip Hop a Potamus'
+  >>> champ.description
+  'Maximum execute damage.'
+  >>> runes
+  <lolrune.runepage.RunePage object at 0x7fce9b5fc940>
+  >>> runes.keystone
+  'Press the Attack'
+  >>> runes.primary.name
+  'Precision'
+  >>> runes.primary.runes
+  ['Overheal', 'Legend: Bloodline', 'Coup De Grace']
+  >>> runes.secondary.name
+  'Domination'
+  >>> runes.secondary.runes
+  ['Sudden Impact', 'Ghost Poro']
 
 Indices and tables
 ------------------
