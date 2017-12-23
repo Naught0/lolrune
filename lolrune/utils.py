@@ -6,8 +6,8 @@ from pkg_resources import resource_filename
 from bs4 import BeautifulSoup
 
 
-#PATH = resource_filename(__name__, './data/rune_links.json')
 PATH = '{}/data/rune_links.json'.format(os.path.dirname(os.path.dirname(__file__)))
+
 
 def load_rune_file() -> Union[dict, None]:
     """A function which loads the .data/rune_links.json file.
@@ -26,6 +26,7 @@ def load_rune_file() -> Union[dict, None]:
         return None
 
     return links
+
 
 def parse_rune_links(html: str) -> dict:
     """A function which parses the main Runeforge website into the .data/rune_links.json format.

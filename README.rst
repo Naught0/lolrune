@@ -33,7 +33,7 @@ Quick Example
   >>> champ.description
   'Maximum execute damage.'
   >>> runes
-  <lolrune.runepage.RunePage object at 0x7fce9b5fc940>
+  <RunePage keystone=Press the Attack secondary=Domination>
   >>> runes.keystone
   'Press the Attack'
   >>> runes.primary.name
