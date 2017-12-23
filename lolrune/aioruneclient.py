@@ -152,6 +152,6 @@ class AioRuneClient:
         """
         champion_lower = champion_name.lower()
         if champion_lower not in self.rune_links:
-            raise ChampNotFoundError(champ_name)
+            raise ChampNotFoundError(champion_name)
 
         return tuple(Champion(x) for x in await self.get_raw(champion_lower))
