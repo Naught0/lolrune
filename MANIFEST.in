@@ -1,3 +1,3 @@
-include data/rune_links.json
+include *.json
 include LICENSE
 include README.rst
