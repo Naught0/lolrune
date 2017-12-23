@@ -50,9 +50,11 @@ class AioRuneClient:
     URL = 'http://runeforge.gg'
 
     def __init__(self, session: aiohttp.ClientSession = None, loop: asyncio.AbstractEventLoop = None):
-        self.loop = asyncio.get_event_loop() or loop
-        self.session = aiohttp.ClientSession(loop=self.loop) or session
+        self.loop = loop or asyncio.get_event_loop()
+        self.session = session or aiohttp.ClientSession(loop=self.loop)
         self.rune_links = utils.load_rune_file()
+        # TODO:
+        # Make this not awful by removing run_until_complete
         if self.rune_links is None:
             self.rune_links = utils.parse_rune_links(self.loop.run_until_complete(
                 self._get(self.URL)))
@@ -152,8 +154,4 @@ class AioRuneClient:
         if champion_lower not in self.rune_links:
             raise ChampNotFoundError(champ_name)
 
-        champ_list = []
-        for x in await self.get_raw(champion_lower):
-            champ_list.append(Champion(x))
-
-        return tuple(champ_list)
+        return tuple(Champion(x) for x in await self.get_raw(champion_lower))

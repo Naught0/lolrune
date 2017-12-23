@@ -54,16 +54,16 @@ class Champion:
         self.runes = RunePage(rune_data['runes'])
 
     def __repr__(self) -> str:
-        return '<Champion name={0.name} description={0.description}>'.format(self)
+        return '<Champion name={0.name!r} description={0.description!r}>'.format(self)
 
     def __eq__(self, other) -> bool:
-        return all(isinstance(other, Champion), 
-                   self.name == other.name, 
-                   self.description == other.description)
+        return (isinstance(other, Champion)
+                and self.name == other.name
+                and self.description == other.description)
 
 
 class RunePage:
-    """An object representing a specific rune page for a :class:`~lolrune.Champion`.
+    """An object representing a specific rune page for a :class:`Champion`.
 
     Parameters
     ----------
@@ -85,17 +85,17 @@ class RunePage:
     ----
     For more information on this object and other data objects, please see :ref:`abs_return_formatting`
     """
-    TREE = namedtuple('Tree', 'name runes')
     def __init__(self, rune_page: dict):
         self.__dict__.update(rune_page)
         self.keystone = rune_page['primary']['keystone']
-        self.primary = self.TREE(name=rune_page['primary']['name'], runes=rune_page['primary']['rest'])
-        self.secondary = self.TREE(name=rune_page['secondary']['name'], runes=rune_page['secondary']['rest'])
+        self.primary = Tree(name=rune_page['primary']['name'], runes=rune_page['primary']['rest'])
+        self.secondary = Tree(name=rune_page['secondary']['name'], runes=rune_page['secondary']['rest'])
 
     def __repr__(self) -> str:
-        return '<RunePage keystone={0.keystone} secondary={0.secondary.name}>'.format(self)
+        return '<RunePage keystone={0.keystone!r} secondary={0.secondary.name!r}>'.format(self)
 
     def __eq__(self, other) -> bool:
-        return all(isinstance(other, Champion), 
-                   self.name == other.name, 
-                   self.description == other.description)
+        return (isinstance(other, RunePage)
+                and self.keystone == other.keystone
+                and self.primary == other.primary
+                and self.secondary == self.secondary)

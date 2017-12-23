@@ -1,12 +1,12 @@
-import os
 import json
+from os import path
 from typing import Union
 from pkg_resources import resource_filename
 
 from bs4 import BeautifulSoup
 
 
-PATH = '{}/data/rune_links.json'.format(os.path.dirname(os.path.dirname(__file__)))
+PATH = '{}/data/rune_links.json'.format(path.dirname(path.dirname(__file__)))
 
 
 def load_rune_file() -> Union[dict, None]:

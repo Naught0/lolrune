@@ -46,7 +46,7 @@ class RuneClient:
     URL = 'http://runeforge.gg/'
 
     def __init__(self, session: requests.Session = None):
-        self.session = requests.Session() or session
+        self.session = session or requests.Session()
         self.rune_links = utils.load_rune_file()
         # Create a proper rune_links.json if it's broken for some reason
         if self.rune_links is None:
@@ -147,8 +147,4 @@ class RuneClient:
         if champion_lower not in self.rune_links:
             raise ChampNotFoundError(champ_name)
 
-        champ_list = []
-        for x in self.get_raw(champion_lower):
-            champ_list.append(Champion(x))
-
-        return tuple(champ_list)
+        return tuple(Champion(x) for x in self.get_raw(champion_lower))
