@@ -6,7 +6,7 @@ The lolrune library has quite a bit of flexibility between sync/async clients, a
 
 Clients
 -------
-There are two clients you can use to champion rune data.
+There are two clients you can use to fetch champion rune data.
 
 .. _rune_client_ex:
 
@@ -27,7 +27,7 @@ This client utilizes a :class:`requests.Session` to retrieve rune data, and is t
 
 Will yield ``Vel'Koz: Maximum AP and 1-shot potential.``
 
-While searching for a champion with more than one rune page, like Zoe, will yield:
+Searching for a champion with more than one rune page, like Zoe, will yield:
 
 .. code::
 
@@ -60,7 +60,7 @@ This client utilizes an :class:`asyncio.AbstractEventLoop` and an :class:`aiohtt
 
 Yields ``Vel'Koz: Maximum AP and 1-shot potential.``
 
-While searching for a champion with more than one rune page, like Riven, will yield:
+Searching for a champion with more than one rune page, like Riven, will yield:
 
 .. code::
    
