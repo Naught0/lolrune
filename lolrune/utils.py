@@ -1,7 +1,12 @@
+import os
 import json
 from typing import Union
+from pkg_resources import resource_filename
 
 from bs4 import BeautifulSoup
+
+
+PATH = '{}/data/rune_links.json'.format(os.path.dirname(os.path.dirname(__file__)))
 
 
 def load_rune_file() -> Union[dict, None]:
@@ -14,7 +19,7 @@ def load_rune_file() -> Union[dict, None]:
         - ``None`` otherwise.
     """
     try:
-        with open('rune_links.json') as f:
+        with open(PATH) as f:
             links = json.load(f)
 
     except (FileNotFoundError, json.JSONDecodeError):
@@ -40,18 +45,23 @@ def parse_rune_links(html: str) -> dict:
 
     # Champs with only a single runepage
     single_champs_raw = soup.find_all('li', class_='champion')
+    # TODO:
+    # Split this string instead of slicing like a moron
     single_champs = {x.a.div.div['style'][77:-6].lower(): [x.a['href']] for x in single_champs_raw if x.a is not None}
 
     # Champs with two (or more) runepages
     double_champs_raw = soup.find_all('div', class_='champion-modal-open')
+    # This is JSON data which just needs to be decoded
     double_champs_decode = [json.loads(x['data-loadouts']) for x in double_champs_raw]
+    # This lowers the champ name in the structure, 
+    # and pulls out the champ links, after it's been decoded
     double_champs = {x[0]['champion'].lower(): [x[0]['link'], x[1]['link']] for x in double_champs_decode}
 
     # Combine the two dicts
     champs_combined = {**single_champs, **double_champs}
 
     # Write to data file
-    with open('rune_links.json', 'w') as f:
+    with open(PATH, 'w') as f:
         json.dump(champs_combined, f, indent=2, sort_keys=True)
 
     return champs_combined

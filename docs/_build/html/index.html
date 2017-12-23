@@ -1,106 +1,187 @@
+
+
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Installation &#8212; lolrune 0.0.1a documentation</title>
-    <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.0.1a',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/sidebar.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API Reference" href="api.html" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <link rel="shortcut icon" type="image/png" href="_static/favicon.png" />
-    <meta name="viewport" content="width=device-width,initial-scale=0.8">
-    
-    
-
-  </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="responsive-menu"><a href="#sidebar-anchor" title="Navigation">&#9776;</a></li>
-        <li><a href="#">lolrune 0.0.1a documentation</a> &#187;</li> 
-      </ul>
-    </div>
-    
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Contents &mdash; lolrune  documentation</title>
   
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="lolrune  documentation" href="#"/>
+        <link rel="next" title="Examples" href="examples.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> lolrune
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.1.dev11+dirty
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">lolrune</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Contents</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" class="align-center" src="_images/logo.png" style="width: 330.0px; height: 150.0px;" /></a>
-<p>lolrune is a package which contains two separate clients through which you can fetch
-League of Legends rune information for any champion.</p>
-<p>The information is scraped from Runeforge.gg and returned in a tuple, containing dicts (i.e. JSON friendly).</p>
-<div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>You can install lolrune via pip, à la <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">lolrune</span></code>. You’ll need at least python3.5.</p>
-</div>
+<p>lolrune is a package which contains two clients (async and non-async), through which you can fetch League of Legends rune information for any champion.</p>
 <div class="section" id="contents">
 <h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound" id="id1">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#clients">Clients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#runeclient">RuneClient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#aioruneclient">AioRuneClient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#return-data-format">Return data format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#raw-return-formatting">Raw return formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#abstract-return-formatting">Abstract return formatting</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api.html#clients">Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#data-classes">Data Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#exceptions">Exceptions</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</div>
-<div class="section" id="quick-example">
-<h1>Quick Example<a class="headerlink" href="#quick-example" title="Permalink to this headline">¶</a></h1>
-<p>I’ll use the default <code class="docutils literal"><span class="pre">RuneClient</span></code> here, using JSON only to prettify the formatting:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">json</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lolrune</span> <span class="k">import</span> <span class="n">RuneClient</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">RuneClient</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_runes</span><span class="p">(</span><span class="s1">&#39;varus&#39;</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
-<span class="go">[</span>
-<span class="go">  {</span>
-<span class="go">    &quot;name&quot;: &quot;Varus&quot;,</span>
-<span class="go">    &quot;title&quot;: &quot;Bloodshed Carries a Price&quot;,</span>
-<span class="go">    &quot;description&quot;: &quot;Lethality focused long range poke with [Q].&quot;,</span>
-<span class="go">    &quot;runes&quot;: {</span>
-<span class="go">      &quot;primary&quot;: {</span>
-<span class="go">        &quot;name&quot;: &quot;Sorcery&quot;,</span>
-<span class="go">        &quot;keystone&quot;: &quot;Arcane Comet&quot;,</span>
-<span class="go">        &quot;rest&quot;: [</span>
-<span class="go">          &quot;Manaflow Band&quot;,</span>
-<span class="go">          &quot;Celerity&quot;,</span>
-<span class="go">          &quot;Scorch&quot;</span>
-<span class="go">        ]</span>
-<span class="go">      },</span>
-<span class="go">      &quot;secondary&quot;: {</span>
-<span class="go">        &quot;name&quot;: &quot;Precision&quot;,</span>
-<span class="go">        &quot;rest&quot;: [</span>
-<span class="go">          &quot;Triumph&quot;,</span>
-<span class="go">          &quot;Coup De Grace&quot;</span>
-<span class="go">        ]</span>
-<span class="go">      }</span>
-<span class="go">    }</span>
-<span class="go">  }, ...</span>
-<span class="go">]</span>
-</pre></div>
-</div>
-<p>Be aware, despite <code class="docutils literal"><span class="pre">[]</span></code> displaying here (per the <code class="docutils literal"><span class="pre">json</span></code> module), the return type will be a <code class="docutils literal"><span class="pre">tuple</span></code> for each client.</p>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
@@ -111,54 +192,73 @@ League of Legends rune information for any champion.</p>
 </div>
 
 
+           </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, James E.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-    <a id="sidebar-anchor"></a>
-    
 
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Installation</a></li>
-<li><a class="reference internal" href="#contents">Contents</a></li>
-<li><a class="reference internal" href="#quick-example">Quick Example</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
+    </section>
 
-  <h4>Next topic</h4>
-  <p class="topless"><a href="api.html"
-                        title="next chapter">API Reference</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="api.html" title="API Reference"
-             accesskey="N">next</a> |</li>
-      </ul>
-    </div>
+  </div>
+  
 
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2017, James E.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
-    </div>
-  </body>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>

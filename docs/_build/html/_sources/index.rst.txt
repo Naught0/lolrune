@@ -8,15 +8,7 @@
     :align: center
 
 
-lolrune is a package which contains two separate clients through which you can fetch
-League of Legends rune information for any champion. 
-
-The information is scraped from Runeforge.gg and returned in a tuple, containing dicts (i.e. JSON friendly).
-
-Installation
-------------
-
-You can install lolrune via pip, à la ``pip install lolrune``. You'll need at least python3.5.
+lolrune is a package which contains two clients (async and non-async), through which you can fetch League of Legends rune information for any champion. 
 
 Contents
 ---------
@@ -24,45 +16,9 @@ Contents
 .. toctree::
    :name: Contents
    :maxdepth: 3
-
+   
+   examples
    api
-
-Quick Example
--------------
-
-I'll use the default ``RuneClient`` here, using JSON only to prettify the formatting::
-
-    >>> import json
-    >>> from lolrune import RuneClient
-    >>> client = RuneClient()
-    >>> print(json.dumps(client.get_runes('varus'), indent=2))
-    [
-      {
-        "name": "Varus",
-        "title": "Bloodshed Carries a Price",
-        "description": "Lethality focused long range poke with [Q].",
-        "runes": {
-          "primary": {
-            "name": "Sorcery",
-            "keystone": "Arcane Comet",
-            "rest": [
-              "Manaflow Band",
-              "Celerity",
-              "Scorch"
-            ]
-          },
-          "secondary": {
-            "name": "Precision",
-            "rest": [
-              "Triumph",
-              "Coup De Grace"
-            ]
-          }
-        }
-      }, ...
-    ]
-
-Be aware, despite ``[]`` displaying here (per the ``json`` module), the return type will be a ``tuple`` for each client.
 
 Indices and tables
 ------------------

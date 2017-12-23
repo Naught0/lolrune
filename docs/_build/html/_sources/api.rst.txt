@@ -12,6 +12,17 @@ Clients
 .. autoclass:: AioRuneClient
    :members:
 
+Data Classes
+------------
+
+.. autoclass:: Champion
+   :members:
+
+.. autoclass:: RunePage
+   :members:
+
+.. autoclass:: Tree
+
 Exceptions
 ----------
 

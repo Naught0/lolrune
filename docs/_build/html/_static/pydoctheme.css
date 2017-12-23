@@ -229,7 +229,7 @@ div.sphinxsidebar,
     font-family: "Lucida Grande",Arial,sans-serif;
 }
 pre, code, tt {
-    font-family: "Iosevka","Consolas",mono;
+    font-family: "Iosevka","Consolas",monospace;
 }
 
 div.body pre {

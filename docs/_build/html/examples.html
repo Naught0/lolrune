@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples &mdash; lolrune  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="lolrune  documentation" href="index.html"/>
+        <link rel="next" title="API Reference" href="api.html"/>
+        <link rel="prev" title="Contents" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> lolrune
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.1.dev11+dirty
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#clients">Clients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#runeclient">RuneClient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aioruneclient">AioRuneClient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#return-data-format">Return data format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#raw-return-formatting">Raw return formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#abstract-return-formatting">Abstract return formatting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">lolrune</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Examples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<p>The lolrune library has quite a bit of flexibility between sync/async clients, as well as return formatting.</p>
+<div class="section" id="clients">
+<h2>Clients<a class="headerlink" href="#clients" title="Permalink to this headline">¶</a></h2>
+<p>There are two clients you can use to champion rune data.</p>
+<div class="section" id="runeclient">
+<span id="rune-client-ex"></span><h3>RuneClient<a class="headerlink" href="#runeclient" title="Permalink to this headline">¶</a></h3>
+<p>This client utilizes a <a class="reference external" href="http://docs.python-requests.org/en/master/api/#requests.Session" title="(in Requests v2.18.4)"><code class="xref py py-class docutils literal"><span class="pre">requests.Session</span></code></a> to retrieve rune data, and is therefore blocking/synchronous.</p>
+<div class="code python3 highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lolrune</span> <span class="k">import</span> <span class="n">RuneClient</span>
+
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">RuneClient</span><span class="p">()</span>
+<span class="n">champ_tup</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_runes</span><span class="p">(</span><span class="s1">&#39;velkoz&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">champ</span> <span class="ow">in</span> <span class="n">champ_tup</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0.name}</span><span class="s1">: </span><span class="si">{0.description}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">champ</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Will yield <code class="docutils literal"><span class="pre">Vel'Koz:</span> <span class="pre">Maximum</span> <span class="pre">AP</span> <span class="pre">and</span> <span class="pre">1-shot</span> <span class="pre">potential.</span></code></p>
+<p>While searching for a champion with more than one rune page, like Zoe, will yield:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span>Zoe: We all grow up! Well, you died
+Zoe: Sorry! Beauty Always Has Tears
+</pre></div>
+</div>
+<p><strong>Note:</strong> All champion names are case insensitive with any special characters removed <strong>except for spaces</strong>.
+For example, <code class="docutils literal"><span class="pre">Vel'Koz</span></code> becomes <code class="docutils literal"><span class="pre">velkoz</span></code> and <code class="docutils literal"><span class="pre">Lee</span> <span class="pre">Sin</span></code> becomes <code class="docutils literal"><span class="pre">lee</span> <span class="pre">sin</span></code>.</p>
+</div>
+<div class="section" id="aioruneclient">
+<span id="aio-client-ex"></span><h3>AioRuneClient<a class="headerlink" href="#aioruneclient" title="Permalink to this headline">¶</a></h3>
+<p>This client utilizes an <a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.AbstractEventLoop" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">asyncio.AbstractEventLoop</span></code></a> and an <a class="reference external" href="https://aiohttp.readthedocs.io/en/stable/client_reference.html#aiohttp.ClientSession" title="(in aiohttp v2.3)"><code class="xref py py-class docutils literal"><span class="pre">aiohttp.ClientSession</span></code></a> to retrieve data, and is therefore non-blocking/asynchronous.</p>
+<div class="code python3 highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">lolrune</span> <span class="k">import</span> <span class="n">AioRuneClient</span>
+
+<span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+<span class="n">run</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">AioRuneClient</span><span class="p">()</span>
+<span class="c1"># If you&#39;re in an async environment, you&#39;ll use await for all coroutines.</span>
+<span class="n">champ_tup</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_runes</span><span class="p">(</span><span class="s1">&#39;velkoz&#39;</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">champ</span> <span class="ow">in</span> <span class="n">champ_tup</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0.name}</span><span class="s1">: </span><span class="si">{0.description}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">champ</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Yields <code class="docutils literal"><span class="pre">Vel'Koz:</span> <span class="pre">Maximum</span> <span class="pre">AP</span> <span class="pre">and</span> <span class="pre">1-shot</span> <span class="pre">potential.</span></code></p>
+<p>While searching for a champion with more than one rune page, like Riven, will yield:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">Riven</span><span class="p">:</span> <span class="n">Sacrifices</span> <span class="n">Must</span> <span class="n">be</span> <span class="n">Made</span>
+<span class="n">Riven</span><span class="p">:</span> <span class="n">No</span> <span class="n">More</span> <span class="n">Hesitation</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> All champion names are case insensitive with any special characters removed <strong>except for spaces</strong>.
+For example, <code class="docutils literal"><span class="pre">Vel'Koz</span></code> becomes <code class="docutils literal"><span class="pre">velkoz</span></code> and <code class="docutils literal"><span class="pre">Lee</span> <span class="pre">Sin</span></code> becomes <code class="docutils literal"><span class="pre">lee</span> <span class="pre">sin</span></code>.</p>
+</div>
+</div>
+<div class="section" id="return-data-format">
+<h2>Return data format<a class="headerlink" href="#return-data-format" title="Permalink to this headline">¶</a></h2>
+<p>There are a few ways in which you can interact with the data retrieved by lolrune.</p>
+<div class="section" id="raw-return-formatting">
+<span id="id1"></span><h3>Raw return formatting<a class="headerlink" href="#raw-return-formatting" title="Permalink to this headline">¶</a></h3>
+<p>The lolrune API returns its data in a <code class="xref py py-class docutils literal"><span class="pre">Tuple[dict]</span></code> format. You can easily interact with the raw data on this level.</p>
+<p><strong>Note</strong>: Most champions will return a tuple with a <em>single item</em>, i.e. a <em>single rune page</em>. Both <a class="reference internal" href="api.html#lolrune.RuneClient.get_raw" title="lolrune.RuneClient.get_raw"><code class="xref py py-meth docutils literal"><span class="pre">RuneClient.get_raw()</span></code></a> and <a class="reference internal" href="api.html#lolrune.AioRuneClient.get_raw" title="lolrune.AioRuneClient.get_raw"><code class="xref py py-meth docutils literal"><span class="pre">AioRuneClient.get_raw()</span></code></a> will automatically return data in this format:</p>
+<div class="code python3 highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span>
+   <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Varus&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Bloodshed Carries a Price&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Lethality focused long range poke with [Q].&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;runes&#39;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">&#39;primary&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Sorcery&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;keystone&#39;</span><span class="p">:</span> <span class="s1">&#39;Arcane Comet&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;rest&#39;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s1">&#39;Manaflow Band&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Celerity&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Scorch&#39;</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="s1">&#39;secondary&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Precision&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;rest&#39;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s1">&#39;Triumph&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Coup De Grace&#39;</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Varus&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Blighted Arrow Dominance&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Massive sustained shred damage.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;runes&#39;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">&#39;primary&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Precision&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;keystone&#39;</span><span class="p">:</span> <span class="s1">&#39;Press the Attack&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;rest&#39;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s1">&#39;Triumph&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Legend: Bloodline&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Coup De Grace&#39;</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="s1">&#39;secondary&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Domination&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;rest&#39;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s1">&#39;Taste of Blood&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Ravenous Hunter&#39;</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="abstract-return-formatting">
+<span id="abs-return-formatting"></span><h3>Abstract return formatting<a class="headerlink" href="#abstract-return-formatting" title="Permalink to this headline">¶</a></h3>
+<p>If you would prefer a more pythonic interface, one is provided.</p>
+<p>lolrune includes a <a class="reference internal" href="api.html#lolrune.Champion" title="lolrune.Champion"><code class="xref py py-class docutils literal"><span class="pre">Champion</span></code></a> class, which contains the returned <a class="reference internal" href="api.html#lolrune.RunePage" title="lolrune.RunePage"><code class="xref py py-class docutils literal"><span class="pre">RunePage</span></code></a>, which holds the two rune <a class="reference internal" href="api.html#lolrune.Tree" title="lolrune.Tree"><code class="xref py py-class docutils literal"><span class="pre">Tree</span></code></a>s. In order to access this interface, you may call <a class="reference internal" href="api.html#lolrune.RuneClient.get_runes" title="lolrune.RuneClient.get_runes"><code class="xref py py-meth docutils literal"><span class="pre">RuneClient.get_runes()</span></code></a> and <a class="reference internal" href="api.html#lolrune.AioRuneClient.get_runes" title="lolrune.AioRuneClient.get_runes"><code class="xref py py-meth docutils literal"><span class="pre">AioRuneClient.get_runes()</span></code></a>, depending on your client of choice.</p>
+<p><strong>Structure:</strong></p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span>Champion
+├───description : str
+├───name : str
+├───runes : RunePage
+│   ├───keystone : str
+│   ├───primary : Tree
+│   │   ├───name : str
+│   │   └───runes : List[str]
+│   └───secondary : Tree
+│       ├───name : str
+│       └───runes : List[str]
+└───title : str
+</pre></div>
+</div>
+<p><strong>Usage:</strong></p>
+<div class="code python3 highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lolrune</span> <span class="k">import</span> <span class="n">RuneClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">RuneClient</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">champ</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_champ</span><span class="p">(</span><span class="s1">&#39;varus&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># This method returns a tuple</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">runes</span> <span class="o">=</span> <span class="n">champ</span><span class="o">.</span><span class="n">runes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">champ</span><span class="o">.</span><span class="n">name</span>
+<span class="go">&#39;Varus&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">champ</span><span class="o">.</span><span class="n">title</span>
+<span class="go">&#39;Bloodshed Carries a Price&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">champ</span><span class="o">.</span><span class="n">description</span>
+<span class="go">&#39;Lethality focused long range poke with [Q].&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">runes</span><span class="o">.</span><span class="n">keystone</span>
+<span class="go">&#39;Arcane Comet&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">runes</span><span class="o">.</span><span class="n">primary</span>
+<span class="go">Tree(name=&#39;Sorcery&#39;, runes=[&#39;Manaflow Band&#39;, &#39;Celerity&#39;, &#39;Scorch&#39;])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">runes</span><span class="o">.</span><span class="n">secondary</span>
+<span class="go">Tree(name=&#39;Precision&#39;, runes=[&#39;Triumph&#39;, &#39;Coup De Grace&#39;])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, James E.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
