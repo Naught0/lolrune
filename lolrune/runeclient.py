@@ -9,6 +9,7 @@ from .errors import *
 
 class RuneClient:
     """A client which allows you get a champion's optimal runes.
+    You can find a brief example :ref:`here <rune_client_ex>`.
 
     Parameters
     ----------

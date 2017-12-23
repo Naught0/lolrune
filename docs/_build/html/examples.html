@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.1.1.dev7+dirty
+                0.1.1.dev10
               </div>
             
           
@@ -94,6 +94,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#clients">Clients</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#runeclient">RuneClient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aioruneclient">AioRuneClient</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#return-data-format">Return data format</a><ul>
@@ -187,13 +188,39 @@
 </pre></div>
 </div>
 <p>Will yield <code class="docutils literal"><span class="pre">Vel'Koz:</span> <span class="pre">Maximum</span> <span class="pre">AP</span> <span class="pre">and</span> <span class="pre">1-shot</span> <span class="pre">potential.</span></code></p>
-<p>While searching for a chamption with more than one rune page, like Zoe, will yield:</p>
+<p>While searching for a champion with more than one rune page, like Zoe, will yield:</p>
 <div class="code highlight-default"><div class="highlight"><pre><span></span>Zoe: We all grow up! Well, you died
 Zoe: Sorry! Beauty Always Has Tears
 </pre></div>
 </div>
-<p><strong>Note:</strong> All champion names are case insensitive with any special characters removed.
-For example, <code class="docutils literal"><span class="pre">Vel'Koz</span></code> becomes <code class="docutils literal"><span class="pre">velkoz</span></code> and <code class="docutils literal"><span class="pre">Lee</span> <span class="pre">Sin</span></code> becomes <code class="docutils literal"><span class="pre">leesin</span></code>.</p>
+<p><strong>Note:</strong> All champion names are case insensitive with any special characters removed <strong>except for spaces</strong>.
+For example, <code class="docutils literal"><span class="pre">Vel'Koz</span></code> becomes <code class="docutils literal"><span class="pre">velkoz</span></code> and <code class="docutils literal"><span class="pre">Lee</span> <span class="pre">Sin</span></code> becomes <code class="docutils literal"><span class="pre">lee</span> <span class="pre">sin</span></code>.</p>
+</div>
+<div class="section" id="aioruneclient">
+<span id="aio-client-ex"></span><h3>AioRuneClient<a class="headerlink" href="#aioruneclient" title="Permalink to this headline">¶</a></h3>
+<p>This client utilizes an <a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.AbstractEventLoop" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">asyncio.AbstractEventLoop</span></code></a> and an <a class="reference external" href="https://aiohttp.readthedocs.io/en/stable/client_reference.html#aiohttp.ClientSession" title="(in aiohttp v2.3)"><code class="xref py py-class docutils literal"><span class="pre">aiohttp.ClientSession</span></code></a> to retrieve data, and is therefore non-blocking/asynchronous.</p>
+<div class="code python3 highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">lolrune</span> <span class="k">import</span> <span class="n">AioRuneClient</span>
+
+<span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+<span class="n">run</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">AioRuneClient</span><span class="p">()</span>
+<span class="c1"># If you&#39;re in an async environment, you&#39;ll use await for all coroutines.</span>
+<span class="n">champ_tup</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_runes</span><span class="p">(</span><span class="s1">&#39;velkoz&#39;</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">champ</span> <span class="ow">in</span> <span class="n">champ_tup</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0.name}</span><span class="s1">: </span><span class="si">{0.description}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">champ</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Yields <code class="docutils literal"><span class="pre">Vel'Koz:</span> <span class="pre">Maximum</span> <span class="pre">AP</span> <span class="pre">and</span> <span class="pre">1-shot</span> <span class="pre">potential.</span></code></p>
+<p>While searching for a champion with more than one rune page, like Riven, will yield:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">Riven</span><span class="p">:</span> <span class="n">Sacrifices</span> <span class="n">Must</span> <span class="n">be</span> <span class="n">Made</span>
+<span class="n">Riven</span><span class="p">:</span> <span class="n">No</span> <span class="n">More</span> <span class="n">Hesitation</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> All champion names are case insensitive with any special characters removed <strong>except for spaces</strong>.
+For example, <code class="docutils literal"><span class="pre">Vel'Koz</span></code> becomes <code class="docutils literal"><span class="pre">velkoz</span></code> and <code class="docutils literal"><span class="pre">Lee</span> <span class="pre">Sin</span></code> becomes <code class="docutils literal"><span class="pre">lee</span> <span class="pre">sin</span></code>.</p>
 </div>
 </div>
 <div class="section" id="return-data-format">

@@ -10,6 +10,7 @@ from .errors import *
 
 class AioRuneClient:
     """An asynchronous version of :class:`RuneClient` used to fetch optimal runes for champions.
+    You can find a brief example :ref:`here <aio_client_ex>`.
 
     Parameters
     ----------

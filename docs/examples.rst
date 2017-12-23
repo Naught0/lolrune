@@ -27,15 +27,17 @@ This client utilizes a :class:`requests.Session` to retrieve rune data, and is t
 
 Will yield ``Vel'Koz: Maximum AP and 1-shot potential.``
 
-While searching for a chamption with more than one rune page, like Zoe, will yield:
+While searching for a champion with more than one rune page, like Zoe, will yield:
 
 .. code::
 
    Zoe: We all grow up! Well, you died
    Zoe: Sorry! Beauty Always Has Tears
 
-**Note:** All champion names are case insensitive with any special characters removed.
-For example, ``Vel'Koz`` becomes ``velkoz`` and ``Lee Sin`` becomes ``leesin``.
+**Note:** All champion names are case insensitive with any special characters removed **except for spaces**.
+For example, ``Vel'Koz`` becomes ``velkoz`` and ``Lee Sin`` becomes ``lee sin``.
+
+.. _aio_client_ex:
 
 AioRuneClient
 ~~~~~~~~~~~~~
@@ -51,7 +53,22 @@ This client utilizes an :class:`asyncio.AbstractEventLoop` and an :class:`aiohtt
 
    client = AioRuneClient()
    # If you're in an async environment, you'll use await for all coroutines.
-   champ_tup = 
+   champ_tup = run(client.get_runes('velkoz'))
+
+   for champ in champ_tup:
+      print('{0.name}: {0.description}'.format(champ))
+
+Yields ``Vel'Koz: Maximum AP and 1-shot potential.``
+
+While searching for a champion with more than one rune page, like Riven, will yield:
+
+.. code::
+   
+   Riven: Sacrifices Must be Made
+   Riven: No More Hesitation
+
+**Note:** All champion names are case insensitive with any special characters removed **except for spaces**.
+For example, ``Vel'Koz`` becomes ``velkoz`` and ``Lee Sin`` becomes ``lee sin``.
 
 Return data format
 ------------------
