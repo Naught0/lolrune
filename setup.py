@@ -21,7 +21,8 @@ setup(
         'version_scheme': 'guess-next-dev',
         'local_scheme': 'dirty-tag'
     },
-    setup_requires=['setuptools_scm', 'aiohttp', 'requests', 'bs4', 'lxml'],
+    setup_requires=['setuptools_scm'],
+    install_requires=['aiohttp', 'requests', 'bs4', 'lxml'],
     description='A set of clients which allows you to gather optimal runes for a given League of Legends champion.',
     long_description=long_description,
     author='James E',
