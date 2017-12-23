@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 
 #PATH = resource_filename(__name__, './data/rune_links.json')
-PATH = '{}/data/rune_links.json'.format(os.path.dirname(__file__))
+PATH = '{}/data/rune_links.json'.format(os.path.dirname(os.path.dirname(__file__)))
 
 def load_rune_file() -> Union[dict, None]:
     """A function which loads the .data/rune_links.json file.
