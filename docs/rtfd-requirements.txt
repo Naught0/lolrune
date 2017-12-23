@@ -6,3 +6,4 @@ lxml
 requests
 sphinx_autodoc_typehints
 sphinx_py3doc_enhanced_theme
+sphinxcontrib-asyncio
