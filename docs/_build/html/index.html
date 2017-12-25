@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Contents &mdash; lolrune  documentation</title>
+  <title>Installation &mdash; lolrune  documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                1.0.1.dev0+dirty
+                1.1.0
               </div>
             
           
@@ -136,7 +136,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>Contents</li>
+      <li>Installation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -157,6 +157,20 @@
             
   <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" class="align-center" src="_images/logo.png" style="width: 330.0px; height: 150.0px;" /></a>
 <p>lolrune is a package which contains two clients (async and non-async), through which you can fetch League of Legends rune information for any champion.</p>
+<div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>I <em>highly</em> recommend that you install the package in a virtual environment, or with the <code class="docutils literal"><span class="pre">--user</span></code> flag, like so:</p>
+<p>On Unix-based OSes</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ python3 -m pip install lolrune --user
+</pre></div>
+</div>
+<p>or on Windows</p>
+<div class="code bat highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">py</span> <span class="o">-</span><span class="mi">3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">lolrune</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">--user</span></code> flag ensures that lolrune will be able to write its data to a json file. Otherwise, your scripts will have to be run as admin on <em>some</em> systems, and that’s lame.</p>
+<p>Alternatively, install in a virtual environment by using <a class="reference external" href="https://github.com/pypa/pipenv">pipenv</a>.</p>
+</div>
 <div class="section" id="contents">
 <h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound" id="id1">
