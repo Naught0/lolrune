@@ -34,8 +34,8 @@ Searching for a champion with more than one rune page, like Zoe, will yield:
    Zoe: We all grow up! Well, you died
    Zoe: Sorry! Beauty Always Has Tears
 
-**Note:** All champion names are case insensitive with any special characters removed **except for spaces**.
-For example, ``Vel'Koz`` becomes ``velkoz`` and ``Lee Sin`` becomes ``lee sin``.
+**Note:** All champion names are case insensitive with any special characters and spaces removed.
+For example, ``Vel'Koz`` becomes ``velkoz`` and ``Lee Sin`` becomes ``leesin``.
 
 .. _aio_client_ex:
 
@@ -67,8 +67,8 @@ Searching for a champion with more than one rune page, like Riven, will yield:
    Riven: Sacrifices Must be Made
    Riven: No More Hesitation
 
-**Note:** All champion names are case insensitive with any special characters removed **except for spaces**.
-For example, ``Vel'Koz`` becomes ``velkoz`` and ``Lee Sin`` becomes ``lee sin``.
+**Note:** All champion names are case insensitive with any special characters and spaces removed.
+For example, ``Vel'Koz`` becomes ``velkoz`` and ``Lee Sin`` becomes ``leesin``.
 
 Return data format
 ------------------
