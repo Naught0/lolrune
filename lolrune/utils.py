@@ -2,10 +2,8 @@ import json
 import re
 from os import path
 from typing import Union
-from pkg_resources import resource_filename
 
 from bs4 import BeautifulSoup
-
 
 PATH = '{}/data/rune_links.json'.format(path.dirname(path.dirname(__file__)))
 
@@ -46,8 +44,8 @@ def parse_rune_links(html: str) -> dict:
 
     # Champs with only a single runepage
     single_page_raw = soup.find_all('li', class_='champion')
-    single_page = {re.split('\W+', x.a.div.div['style'])[-3].lower(): 
-                        [x.a['href']] for x in single_page_raw if x.a is not None}
+    single_page = {re.split('\W+', x.a.div.div['style'])[-3].lower():
+                       [x.a['href']] for x in single_page_raw if x.a is not None}
 
     # Champs with two (or more) runepages
     double_page_raw = soup.find_all('div', class_='champion-modal-open')
@@ -55,8 +53,8 @@ def parse_rune_links(html: str) -> dict:
     double_page_decode = [json.loads(x['data-loadouts']) for x in double_page_raw]
     # This lowers the champ name in the structure, 
     # and pulls out the champ links, after it's been decoded
-    double_page = {re.sub('[^A-Za-z0-9]+', '', x[0]['champion'].lower()): 
-                        [x[0]['link'], x[1]['link']] for x in double_page_decode}
+    double_page = {re.sub('[^A-Za-z0-9]+', '', x[0]['champion'].lower()):
+                       [x[0]['link'], x[1]['link']] for x in double_page_decode}
 
     # Combine the two dicts
     champs_combined = {**single_page, **double_page}

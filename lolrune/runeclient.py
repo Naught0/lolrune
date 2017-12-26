@@ -3,8 +3,8 @@ from typing import Tuple
 import requests
 
 from . import utils
-from .runepage import Champion
 from .errors import *
+from .runepage import Champion
 
 
 class RuneClient:

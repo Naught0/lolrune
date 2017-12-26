@@ -1,6 +1,4 @@
-from collections import namedtuple
 from typing import NamedTuple, List
-
 
 Tree = NamedTuple('Tree', [('name', str), ('runes', List[str])])
 """A :func:`namedtuple <collections.namedtuple>` which represents a specific tree in a :class:`RunePage`.
@@ -47,6 +45,7 @@ class Champion:
     ----
     For more information on this object and other data objects, please see :ref:`abs_return_formatting`
     """
+
     def __init__(self, rune_data: dict):
         self.name = rune_data['name']
         self.title = rune_data['title']
@@ -85,6 +84,7 @@ class RunePage:
     ----
     For more information on this object and other data objects, please see :ref:`abs_return_formatting`
     """
+
     def __init__(self, rune_page: dict):
         self.__dict__.update(rune_page)
         self.keystone = rune_page['primary']['keystone']
