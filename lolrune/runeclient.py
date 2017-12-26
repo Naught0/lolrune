@@ -26,8 +26,8 @@ class RuneClient:
         The runeforge.gg url used in requests.
 
     rune_links : dict
-        This is the data contained in the rune_links.json file.
-    
+        A dict containing all champ's individual rune pages.
+
     Note
     ----
     The rune_links data is structured like so::
@@ -47,10 +47,7 @@ class RuneClient:
 
     def __init__(self, session: requests.Session = None):
         self.session = session or requests.Session()
-        self.rune_links = utils.load_rune_file()
-        # Create a proper rune_links.json if it's broken for some reason
-        if self.rune_links is None:
-            self.rune_links = utils.parse_rune_links(self._get(self.URL))
+        self.rune_links = utils.parse_rune_links(self._get(self.URL))
 
     def _get(self, url: str) -> str:
         """A small wrapper method which makes a quick GET request.
@@ -77,7 +74,7 @@ class RuneClient:
             raise RuneConnectionError(resp.status_code)
 
     def update_champs(self):
-        """A method which updates the rune_links.json file and ``self.rune_links``.
+        """A method which updates ``self.rune_links``.
         This is useful because runeforge.gg is frequently updating.
 
         Raises

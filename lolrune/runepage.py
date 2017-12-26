@@ -41,6 +41,9 @@ class Champion:
     runes : :class:`RunePage`
         Contains rune information.
 
+    url : str
+        The runeforge page for the specific rune page.
+
     Note
     ----
     For more information on this object and other data objects, please see :ref:`abs_return_formatting`

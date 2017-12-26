@@ -1,34 +1,11 @@
 import json
 import re
-from os import path
-from typing import Union
 
 from bs4 import BeautifulSoup
 
-PATH = '{}/data/rune_links.json'.format(path.dirname(path.dirname(__file__)))
-
-
-def load_rune_file() -> Union[dict, None]:
-    """A function which loads the .data/rune_links.json file.
-
-    Returns
-    -------
-    Union[dict, None]
-        - ``dict`` if there are no errors in opening the file.
-        - ``None`` otherwise.
-    """
-    try:
-        with open(PATH) as f:
-            links = json.load(f)
-
-    except (FileNotFoundError, json.JSONDecodeError):
-        return None
-
-    return links
-
 
 def parse_rune_links(html: str) -> dict:
-    """A function which parses the main Runeforge website into the rune_links.json format.
+    """A function which parses the main Runeforge website into dict format.
 
     Parameters
     ----------
@@ -38,7 +15,7 @@ def parse_rune_links(html: str) -> dict:
     Returns
     -------
     dict
-        The rune_links.json file as a dict.
+        The nested rune_links champ rune pages from runeforge.
     """
     soup = BeautifulSoup(html, 'lxml')
 
@@ -58,10 +35,6 @@ def parse_rune_links(html: str) -> dict:
 
     # Combine the two dicts
     champs_combined = {**single_page, **double_page}
-
-    # Write to data file
-    with open(PATH, 'w') as f:
-        json.dump(champs_combined, f, indent=2, sort_keys=True)
 
     return champs_combined
 
