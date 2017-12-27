@@ -121,7 +121,7 @@ class AioRuneClient:
         rune_list = []
         for x in self.rune_links[champion_lower]:
             html = await self._get(x)
-            rune_list.append(utils.parse_rune_html(html))
+            rune_list.append(utils.parse_rune_html(html, x))
 
         return tuple(rune_list)
 

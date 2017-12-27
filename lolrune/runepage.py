@@ -54,6 +54,7 @@ class Champion:
         self.title = rune_data['title']
         self.description = rune_data['description']
         self.runes = RunePage(rune_data['runes'])
+        self.url = rune_data['url']
 
     def __repr__(self) -> str:
         return '<Champion name={0.name!r} description={0.description!r}>'.format(self)

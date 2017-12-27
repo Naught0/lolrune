@@ -114,7 +114,7 @@ class RuneClient:
         rune_list = []
         for x in self.rune_links[champion_lower]:
             html = self._get(x)
-            rune_list.append(utils.parse_rune_html(html))
+            rune_list.append(utils.parse_rune_html(html, x))
 
         return tuple(rune_list)
 
@@ -142,6 +142,6 @@ class RuneClient:
         """
         champion_lower = champion_name.lower()
         if champion_lower not in self.rune_links:
-            raise ChampNotFoundError(champ_name)
+            raise ChampNotFoundError(champion_name)
 
         return tuple(Champion(x) for x in self.get_raw(champion_lower))

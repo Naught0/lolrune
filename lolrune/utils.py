@@ -39,13 +39,16 @@ def parse_rune_links(html: str) -> dict:
     return champs_combined
 
 
-def parse_rune_html(html: str) -> dict:
+def parse_rune_html(html: str, url: str) -> dict:
     """A function that returns a dict representation of the Runeforge.gg page for a specific champ
 
     Parameters
     ----------
     html : str
         The string representation of the html obtained via a GET request
+
+    url : str
+        The URL for the runeforge page being parsed.
 
     Returns
     -------
@@ -69,6 +72,6 @@ def parse_rune_html(html: str) -> dict:
     # The runes in the secondary tree
     s_rest = [x.text for x in all_runes[4:7]]
 
-    return {'name': champ, 'title': title, 'description': description,
+    return {'name': champ, 'title': title, 'description': description, 'url': url,
             'runes': {'primary': {'name': p_tree, 'keystone': keystone, 'rest': p_rest},
                       'secondary': {'name': s_tree, 'rest': s_rest}}}
