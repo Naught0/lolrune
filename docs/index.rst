@@ -12,21 +12,17 @@ lolrune is a package which contains two clients (async and non-async), through w
 Installation
 ------------
 
-I *highly* recommend that you install the package in a virtual environment, or with the ``--user`` flag, like so:
-
-On Unix-based OSes
+On Unix-based OSes (you may need sudo)
 
 .. code:: bash
     
-    $ python3 -m pip install lolrune --user
+    $ python3 -m pip install lolrune
 
 or on Windows
 
 .. code:: bat
     
-    > py -3 -m pip install lolrune --user
-
-The ``--user`` flag ensures that lolrune will be able to write its data to a json file. Otherwise, your scripts will have to be run as admin on *some* systems, and that's lame.
+    > py -3 -m pip install lolrune
 
 Alternatively, install in a virtual environment by using pipenv_.
 
