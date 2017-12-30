@@ -6,4 +6,4 @@ lolrune.egg-info/
 dist/
 .eggs/
 build/
-docs/_build/
+_build/
