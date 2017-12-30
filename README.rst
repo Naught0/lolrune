@@ -1,5 +1,7 @@
+|lolrune|
+
 lolrune
--------
+-------------------
 
 |docs| |pypi|
 
@@ -45,6 +47,12 @@ Quick Example
   >>> runes.secondary.runes
   ['Sudden Impact', 'Ghost Poro']
 
+Attribution
+~~~~~~~~~~~
+|rfgg|
+
+A big thanks to the Runeforge.gg guys for making this data available through their website! I recommend you check them out.
+
 Issues
 ~~~~~~
 
@@ -57,3 +65,10 @@ submit a PR or an issue.
 
 .. |pypi| image:: https://badge.fury.io/py/lolrune.svg
   :target: https://badge.fury.io/py/lolrune
+
+.. |rfgg| image:: http://runeforge.gg/wp-content/themes/rune_forge/imgs/logo-shiny.svg
+  :target: http://runeforge.gg/
+
+.. |rfggsmall| image:: http://d181w3hxxigzvh.cloudfront.net/wp-content/themes/rune_forge/favicon-32x32.png
+
+.. |lolrune| image::  https://image.ibb.co/emXvWb/300x300ogo.png
