@@ -88,6 +88,7 @@ The lolrune API returns its data in a :class:`Tuple[dict]` format. You can easil
       {
        'name': 'Varus',
        'title': 'Bloodshed Carries a Price',
+       'url': 'http://runeforge.gg/loadouts/bloodshed-carries-price/'
        'description': 'Lethality focused long range poke with [Q].',
        'runes': {
          'primary': {
@@ -111,6 +112,7 @@ The lolrune API returns its data in a :class:`Tuple[dict]` format. You can easil
      {
        'name': 'Varus',
        'title': 'Blighted Arrow Dominance',
+       'url': 'http://runeforge.gg/loadouts/blighted-arrow-dominance/'
        'description': 'Massive sustained shred damage.',
        'runes': {
          'primary': {

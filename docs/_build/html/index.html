@@ -28,7 +28,9 @@
   
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   
-
+  
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  
   
 
   
@@ -65,7 +67,7 @@
             
             
               <div class="version">
-                1.1.0
+                1.1.2.dev3
               </div>
             
           
@@ -90,8 +92,25 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#clients">Clients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#runeclient">RuneClient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#aioruneclient">AioRuneClient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#return-data-format">Return data format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#raw-return-formatting">Raw return formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#abstract-return-formatting">Abstract return formatting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#clients">Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#data-classes">Data Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#exceptions">Exceptions</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -113,7 +132,9 @@
 
       
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -155,20 +176,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <a class="reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" class="align-center" src="_images/logo.png" style="width: 330.0px; height: 150.0px;" /></a>
+  <img alt="_images/logo.png" class="align-center" src="_images/logo.png" style="width: 340.40000000000003px; height: 341.6px;" />
 <p>lolrune is a package which contains two clients (async and non-async), through which you can fetch League of Legends rune information for any champion.</p>
 <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>I <em>highly</em> recommend that you install the package in a virtual environment, or with the <code class="docutils literal"><span class="pre">--user</span></code> flag, like so:</p>
-<p>On Unix-based OSes</p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ python3 -m pip install lolrune --user
+<p>On Unix-based OSes (you may need sudo)</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ python3 -m pip install lolrune
 </pre></div>
 </div>
 <p>or on Windows</p>
-<div class="code bat highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">py</span> <span class="o">-</span><span class="mi">3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">lolrune</span> <span class="o">--</span><span class="n">user</span>
+<div class="code bat highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">py</span> <span class="o">-</span><span class="mi">3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">lolrune</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal"><span class="pre">--user</span></code> flag ensures that lolrune will be able to write its data to a json file. Otherwise, your scripts will have to be run as admin on <em>some</em> systems, and that’s lame.</p>
 <p>Alternatively, install in a virtual environment by using <a class="reference external" href="https://github.com/pypa/pipenv">pipenv</a>.</p>
 </div>
 <div class="section" id="contents">
@@ -196,6 +215,12 @@
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="attribution">
+<h1>Attribution<a class="headerlink" href="#attribution" title="Permalink to this headline">¶</a></h1>
+<p>All lolrune data is obtained via scraping <a class="reference external" href="http://runeforge.gg">Runeforge</a>.</p>
+<p>I highly recommend you check them out!</p>
+<p><a class="reference external" href="http://runeforge.gg/"><img alt="rfgg" src="http://runeforge.gg/wp-content/themes/rune_forge/imgs/logo-shiny.svg" /></a></p>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
@@ -248,6 +273,7 @@
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -265,14 +291,13 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

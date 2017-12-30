@@ -4,8 +4,8 @@
    contain the root `toctree` directive.
  
 .. image:: /images/logo.png
-    :scale: 60%
-    :align: center
+   :scale: 40%
+   :align: center
 
 lolrune is a package which contains two clients (async and non-async), through which you can fetch League of Legends rune information for any champion. 
 
@@ -36,6 +36,15 @@ Contents
    examples
    api
 
+Attribution
+-----------
+
+All lolrune data is obtained via scraping Runeforge_.
+
+I highly recommend you check them out!
+
+|rfgg|
+
 Indices and tables
 ------------------
 
@@ -44,3 +53,8 @@ Indices and tables
 
 
 .. _pipenv: https://github.com/pypa/pipenv
+
+.. _Runeforge: http://runeforge.gg
+
+.. |rfgg| image:: http://runeforge.gg/wp-content/themes/rune_forge/imgs/logo-shiny.svg
+  :target: http://runeforge.gg/

@@ -156,7 +156,8 @@ lolrune includes a :class:`Champion` class, which contains the returned :class:`
    │   └───secondary : Tree
    │       ├───name : str
    │       └───runes : List[str]
-   └───title : str
+   ├───title : str
+   └───url : str
 
 **Usage:**
 

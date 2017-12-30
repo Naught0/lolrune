@@ -28,7 +28,9 @@
   
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   
-
+  
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  
   
 
   
@@ -65,7 +67,7 @@
             
             
               <div class="version">
-                1.1.0
+                1.1.2.dev3
               </div>
             
           
@@ -90,7 +92,19 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#clients">Clients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#runeclient">RuneClient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#aioruneclient">AioRuneClient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#return-data-format">Return data format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#raw-return-formatting">Raw return formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#abstract-return-formatting">Abstract return formatting</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#clients">Clients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-classes">Data Classes</a></li>
@@ -118,7 +132,9 @@
 
       
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -193,7 +209,7 @@ If one is not passed, one will be created.</td>
 <dl class="attribute">
 <dt id="lolrune.RuneClient.rune_links">
 <code class="descname">rune_links</code><a class="headerlink" href="#lolrune.RuneClient.rune_links" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>dict</em> – This is the data contained in the rune_links.json file.</p>
+<dd><p><em>dict</em> – A dict containing all champ’s individual rune pages.</p>
 </dd></dl>
 
 <div class="admonition note">
@@ -274,7 +290,7 @@ If one is not passed, one will be created.</td>
 <dl class="method">
 <dt id="lolrune.RuneClient.update_champs">
 <code class="descname">update_champs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.RuneClient.update_champs" title="Permalink to this definition">¶</a></dt>
-<dd><p>A method which updates the rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.
+<dd><p>A method which updates <code class="docutils literal"><span class="pre">self.rune_links</span></code>.
 This is useful because runeforge.gg is frequently updating.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -321,7 +337,7 @@ a new session will be created.</li>
 <dl class="attribute">
 <dt id="lolrune.AioRuneClient.rune_links">
 <code class="descname">rune_links</code><a class="headerlink" href="#lolrune.AioRuneClient.rune_links" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>dict</em> – This is the data contained in the rune_links.json file.</p>
+<dd><p><em>dict</em> – A dict containing all champ’s individual rune pages.</p>
 </dd></dl>
 
 <div class="admonition note">
@@ -402,7 +418,7 @@ a new session will be created.</li>
 <dl class="method">
 <dt id="lolrune.AioRuneClient.update_champs">
 <em class="property">coroutine </em><code class="descname">update_champs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lolrune.AioRuneClient.update_champs" title="Permalink to this definition">¶</a></dt>
-<dd><p>A method which updates the rune_links.json file and <code class="docutils literal"><span class="pre">self.rune_links</span></code>.
+<dd><p>A method which updates <code class="docutils literal"><span class="pre">self.rune_links</span></code>.
 This is useful because runeforge.gg is frequently updating.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -455,6 +471,12 @@ This is largely meaningless, e.g. <code class="docutils literal"><span class="pr
 <dt id="lolrune.Champion.runes">
 <code class="descname">runes</code><a class="headerlink" href="#lolrune.Champion.runes" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="#lolrune.RunePage" title="lolrune.RunePage"><code class="xref py py-class docutils literal"><span class="pre">RunePage</span></code></a> – Contains rune information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lolrune.Champion.url">
+<code class="descname">url</code><a class="headerlink" href="#lolrune.Champion.url" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – The runeforge page for the specific rune page.</p>
 </dd></dl>
 
 <div class="admonition note">
@@ -603,6 +625,7 @@ This is largely meaningless, e.g. <code class="docutils literal"><span class="pr
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -620,14 +643,13 @@ This is largely meaningless, e.g. <code class="docutils literal"><span class="pr
     <script type="text/javascript" src="_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

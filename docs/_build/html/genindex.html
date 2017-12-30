@@ -29,7 +29,9 @@
   
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   
-
+  
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  
   
 
   
@@ -65,7 +67,7 @@
             
             
               <div class="version">
-                1.1.0
+                1.1.2.dev3
               </div>
             
           
@@ -90,8 +92,25 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#clients">Clients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#runeclient">RuneClient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#aioruneclient">AioRuneClient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#return-data-format">Return data format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#raw-return-formatting">Raw return formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#abstract-return-formatting">Abstract return formatting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#clients">Clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#data-classes">Data Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#exceptions">Exceptions</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -113,7 +132,9 @@
 
       
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -326,11 +347,11 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#lolrune.AioRuneClient.URL">URL (lolrune.AioRuneClient attribute)</a>
-
-      <ul>
-        <li><a href="api.html#lolrune.RuneClient.URL">(lolrune.RuneClient attribute)</a>
 </li>
-      </ul></li>
+      <li><a href="api.html#lolrune.Champion.url">url (lolrune.Champion attribute)</a>
+</li>
+      <li><a href="api.html#lolrune.RuneClient.URL">URL (lolrune.RuneClient attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -371,6 +392,7 @@
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -388,14 +410,13 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
   
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

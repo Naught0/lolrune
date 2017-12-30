@@ -40,6 +40,9 @@ extensions = [
     'sphinxcontrib.asyncio'
 ]
 
+# No clickable images
+html_scaled_image_link = False
+
 # Intersphinx config
 intersphinx_mapping = {
     'aiohttp': ('https://aiohttp.readthedocs.io/en/stable/', None),
