@@ -8,6 +8,8 @@ Clients
 -------
 There are two clients you can use to fetch champion rune data.
 
+.. note:: If you're looking for ``Wukong``, search instead for ``monkeyking``. Riot decided that's what they're going to call him, so here we are.
+
 .. _rune_client_ex:
 
 RuneClient
