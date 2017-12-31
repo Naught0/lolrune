@@ -36,10 +36,6 @@ def parse_rune_links(html: str) -> dict:
     # Combine the two dicts
     champs_combined = {**single_page, **double_page}
 
-    # Scraping yields "wukong" to be "monkeyking" for whatever reason
-    # I have yet to find any more anomalies like this
-    champs_combined['wukong'] = champs_combined.pop('monkeyking')
-
     return champs_combined
 
 
