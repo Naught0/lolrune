@@ -3,8 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
  
-.. image:: /images/logo.png
-   :scale: 40%
+.. image:: /images/logo.svg
+   :height: 300px
+   :width: 300px
    :align: center
 
 lolrune is a package which contains two clients (async and non-async), through which you can fetch League of Legends rune information for any champion. 
