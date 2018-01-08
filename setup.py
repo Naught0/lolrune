@@ -15,14 +15,17 @@ except (FileNotFoundError, IOError):
 setup(
     name='lolrune',
     packages=['lolrune'],
+    description='A set of clients which allows you to gather optimal runes for a given League of Legends champion.',
+    long_description=long_description,
     use_scm_version={
         'version_scheme': 'guess-next-dev',
         'local_scheme': 'dirty-tag'
     },
     setup_requires=['setuptools_scm'],
-    install_requires=['aiohttp', 'requests', 'bs4', 'lxml'],
-    description='A set of clients which allows you to gather optimal runes for a given League of Legends champion.',
-    long_description=long_description,
+    install_requires=['requests', 'bs4', 'lxml'],
+    extras_require={
+        'async': ['aiohttp>=2.3.3']
+    },
     author='James E',
     author_email='naught0@github.com',
     url='https://github.com/naught0/lolrune',

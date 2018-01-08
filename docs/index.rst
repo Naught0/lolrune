@@ -13,19 +13,34 @@ lolrune is a package which contains two clients (async and non-async), through w
 Installation
 ------------
 
+There are two clients included with lolrune. You can install the default 
+which uses the requests_ library like so:
+
 On Unix-based OSes (you may need sudo)
 
 .. code:: bash
     
-    $ python3 -m pip install lolrune
+    $ python3 -m pip install -U lolrune
 
 or on Windows
 
 .. code:: bat
     
-    > py -3 -m pip install lolrune
+    > py -3 -m pip install -U lolrune
 
-Alternatively, install in a virtual environment by using pipenv_.
+In order to install dependencies required for the asynchronous client,
+which uses aiohttp_, you may do the following:
+
+.. code:: bash
+
+    $ python3 -m pip install -U lolrune[async]
+
+The ``[async]`` part is 100% necessary in order to use the ``AioRuneClient``.
+
+.. note:: 
+
+    It is typically recommended to install packages in a virtual 
+    environment by using pipenv_.
 
 Contents
 ---------
@@ -54,6 +69,10 @@ Indices and tables
 
 
 .. _pipenv: https://github.com/pypa/pipenv
+
+.. _requests: http://docs.python-requests.org/
+
+.. _aiohttp: https://aiohttp.readthedocs.io/
 
 .. _Runeforge: http://runeforge.gg
 
