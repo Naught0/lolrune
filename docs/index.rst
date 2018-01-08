@@ -35,9 +35,10 @@ which uses aiohttp_, you may do the following:
 
     $ python3 -m pip install -U lolrune[async]
 
-The ``[async]`` part is 100% necessary in order to use the ``AioRuneClient``.
+The ``[async]`` part is 100% necessary in order to use the ``AioRuneClient``,
+unless of course you have aiohttp_ installed already.
 
-.. note:: 
+.. note::
 
     It is typically recommended to install packages in a virtual 
     environment by using pipenv_.
