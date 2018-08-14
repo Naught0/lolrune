@@ -1,7 +1,8 @@
 |lolrune|
 
-lolrune
--------------------
+Warning
+~~~~~~~
+The RuneForge website has since changed its structure and lolrune no longer works as a result. I hope to update this at some point when I have the time.
 
 |docs| |pypi|
 
